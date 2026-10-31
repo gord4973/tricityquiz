@@ -10,6 +10,6 @@ input,textarea{font:inherit;padding:12px;border-radius:10px;border:2px solid #cc
 .a0{background:#e21b3c}.a1{background:#1368ce}.a2{background:#d89e00}.a3{background:#26890c}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .center{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
-.pop{animation:pop .45s cubic-bezier(.2,1.6,.4,1)}@keyframes pop{from{transform:scale(.5);opacity:0}to{transform:none;opacity:1}}
+.pop{animation:pop .45s cubic-bezier(.2,1.6,.4,1)}@keyframes pop{from{transform:scale(.6)}to{transform:none}}
 .hidden{display:none!important}
 .logo{font-weight:900;font-size:2em;letter-spacing:-1px}.logo b{color:#ffd600}
