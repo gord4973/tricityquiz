@@ -8,7 +8,7 @@ let games=fs.existsSync(DATA)?JSON.parse(fs.readFileSync(DATA)):{};
 if(!Object.keys(games).length){const id='sample';games[id]={id,updated:Date.now(),title:'Tricity Mitsubishi Sample Quiz',questions:[
 {text:'Which Mitsubishi is a plug-in hybrid SUV?',answers:['Mirage','Outlander PHEV','Eclipse Cross','RVR'],correct:1},
 {text:'What colour is the triangle answer button?',answers:['Red','Blue','Yellow','Green'],correct:0},
-{text:'How many seconds per question?',answers:['10','15','20','30'],correct:2}]};setTimeout(save,0)}
+{text:'How many seconds per question?',answers:['10','15','20','30'],correct:2}]};setTimeout(()=>save(),0)}
 const save=()=>{fs.writeFileSync(DATA+'.tmp',JSON.stringify(games,null,1));fs.renameSync(DATA+'.tmp',DATA)};
 const QT=20000;
 const pts=ms=>Math.max(10,Math.round(100-90*Math.min(ms,QT)/QT));
