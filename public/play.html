@@ -1,0 +1,22 @@
+<!doctype html><html><head><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><title>QuizBlast</title><link rel=stylesheet href=/style.css>
+<style>section{min-height:100vh;padding:16px;display:flex;flex-direction:column}#ans{flex:1;grid-template-rows:1fr 1fr}#ans button{font-size:12vw;border-radius:14px}.st{display:flex;justify-content:space-between;font-weight:900;font-size:1.2em;margin-bottom:10px}.big{font-size:3em;font-weight:900}</style></head><body>
+<section id=j class=center><div class=logo style="font-size:3em">Quiz<b>Blast</b></div><div class="card pop" style="width:100%;max-width:380px;margin-top:20px"><input id=pin placeholder="Game PIN" inputmode=numeric style="text-align:center;font-size:1.4em;font-weight:700"><input id=nm placeholder="Nickname" maxlength=20 style="text-align:center;font-size:1.4em;font-weight:700;margin-top:10px"><button class=green style="width:100%;margin-top:10px;font-size:1.3em" onclick=join()>Join!</button><div id=err style="color:#e21b3c;margin-top:8px"></div></div></section>
+<section id=w class="center hidden"><div class="big pop">You're in!</div><p id=me style="font-size:1.4em"></p><p>See your name on the big screen 👀</p></section>
+<section id=q class=hidden><div class=st><span id=qn></span><span>⏱ <span id=tl>20</span>s</span><span>💎 <span id=pv>100</span> pts</span></div><div class=grid id=ans></div></section>
+<section id=wait class="center hidden"><div class="big pop">Answer locked 🔒</div><p>Waiting for others…</p></section>
+<section id=res class="center hidden"><div class="big pop" id=rt></div><p id=rg style="font-size:1.6em;font-weight:700"></p><p id=rs style="font-size:1.2em"></p></section>
+<section id=over class="center hidden"><div class="big pop">🏁 Game over</div><p id=fs style="font-size:1.4em"></p></section>
+<script src=/socket.io/socket.io.js></script><script>
+const SH=['▲','◆','●','■'],s=io(),$=id=>document.getElementById(id);let raf,last;
+function show(id){['j','w','q','wait','res','over'].forEach(x=>$(x).classList.toggle('hidden',x!==id))}
+const m=location.pathname.match(/\/j\/(\d+)/);if(m){$('pin').value=m[1];$('pin').style.display='none'}
+function join(){s.emit('join',{pin:$('pin').value.trim(),name:$('nm').value},r=>{if(r.error)return $('err').textContent=r.error;$('me').textContent=$('nm').value;show('w')})}
+function beep(f){try{const c=new (window.AudioContext||webkitAudioContext)(),o=c.createOscillator();o.frequency.value=f;o.connect(c.destination);o.start();o.stop(c.currentTime+.15)}catch(e){}}
+s.on('question',q=>{show('q');$('qn').textContent=`Q${q.i+1}/${q.n}`;$('ans').innerHTML=SH.map((h,j)=>`<button class="a${j} pop" onclick=pick(${j})>${h}</button>`).join('');
+ const t0=performance.now();cancelAnimationFrame(raf);(function t(){const el=Math.min(performance.now()-t0,q.dur);$('tl').textContent=Math.ceil((q.dur-el)/1000);$('pv').textContent=Math.max(10,Math.round(100-90*el/q.dur));if(el<q.dur)raf=requestAnimationFrame(t)})()});
+function pick(j){if(navigator.vibrate)navigator.vibrate(30);s.emit('answer',j,()=>{});show('wait')}
+s.on('result',r=>{cancelAnimationFrame(raf);show('res');last=r;document.body.style.background=r.correct?'#26890c':'#e21b3c';beep(r.correct?880:220);setTimeout(()=>document.body.style.background='',3000);
+ $('rt').textContent=r.correct?'✔ Correct!':'✖ '+(r.gained===0?'Not this time':'');$('rg').textContent='+'+r.gained+' points';$('rs').textContent=`Total ${r.score} · You're #${r.rank}`});
+s.on('end',()=>{show('over');$('fs').textContent=last?`Final score ${last.score} · Rank #${last.rank}`:''});
+s.on('hostgone',()=>{show('over');$('fs').textContent='The host ended the game.'});
+</script></body></html>

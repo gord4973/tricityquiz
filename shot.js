@@ -1,0 +1,11 @@
+const P=require('puppeteer-core'),fs=require('fs'),{io}=require('socket.io-client');const B=process.argv[2],PW=fs.readFileSync('data/host_password.txt','utf8').trim();
+(async()=>{const b=await P.launch({executablePath:'/usr/bin/google-chrome',args:['--no-sandbox']});const p=await b.newPage();await p.setViewport({width:1600,height:900});
+await p.goto(B+'/admin');await p.evaluate(pw=>localStorage.pw=pw,PW);await p.goto(B+'/admin',{waitUntil:'networkidle0'});await p.screenshot({path:'screens/admin.png'});
+const gid=await p.evaluate(()=>fetch('/api/games',{headers:{'x-pw':localStorage.pw}}).then(r=>r.json()).then(g=>g[0].id));
+await p.goto(B+'/host?g='+gid,{waitUntil:'networkidle0'});await p.waitForFunction(()=>/\d/.test(document.getElementById('pin').textContent));
+const pin=await p.$eval('#pin',e=>e.textContent);const ss=[];for(const n of['Gord','Sales_Sam','Finance_Fiona','Tech_Tony','Lot_Larry','Service_Sue'])await new Promise(r=>{const s=io(B);ss.push(s);s.emit('join',{pin,name:n},r)});
+await new Promise(r=>setTimeout(r,1500));await p.screenshot({path:'screens/host-lobby.png'});
+const m=await b.newPage();await m.setViewport({width:390,height:844,isMobile:true});await m.goto(B+'/j/'+pin,{waitUntil:'networkidle0'});await m.type('#nm','Phone_Phil');await m.click('button.green');
+await new Promise(r=>setTimeout(r,800));await p.evaluate(()=>next());await new Promise(r=>setTimeout(r,6000));await p.screenshot({path:'screens/host-question.png'});await m.screenshot({path:'screens/player-question.png'});
+ss.forEach((s,i)=>s.emit('answer',i%4));await m.click('#ans button:nth-child(2)');const t=Date.now();await p.waitForSelector('#rv:not(.hidden)');console.log('early lock after all answered:',Date.now()-t,'ms');
+await new Promise(r=>setTimeout(r,1500));await p.screenshot({path:'screens/host-reveal.png'});await m.screenshot({path:'screens/player-result.png'});await b.close();process.exit(0)})();

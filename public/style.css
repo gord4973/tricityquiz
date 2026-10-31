@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;900&display=swap');
+*{box-sizing:border-box}body{margin:0;font-family:Montserrat,system-ui,sans-serif;color:#fff;min-height:100vh;background:linear-gradient(135deg,#46178f,#7b1fa2 50%,#1368ce);background-size:300% 300%;animation:bg 18s ease infinite}
+@keyframes bg{0%,100%{background-position:0 50%}50%{background-position:100% 50%}}
+.card{background:#fff;color:#222;border-radius:16px;padding:20px;box-shadow:0 10px 30px #0004}
+button,.btn{font:inherit;font-weight:700;border:0;border-radius:10px;padding:12px 20px;cursor:pointer;background:#333;color:#fff;box-shadow:0 4px 0 #0005;transition:transform .1s}
+button:active{transform:translateY(3px)}.green{background:#26890c}.red{background:#e21b3c}.blue{background:#1368ce}.yellow{background:#d89e00}.ghost{background:#fff3}
+input,textarea{font:inherit;padding:12px;border-radius:10px;border:2px solid #ccc;width:100%}
+.ans{display:flex;align-items:center;gap:14px;color:#fff;font-weight:700;border-radius:10px;padding:18px;font-size:1.4em;box-shadow:0 5px 0 #0004}
+.ans .sh{font-size:1.6em;width:1.2em;text-align:center}
+.a0{background:#e21b3c}.a1{background:#1368ce}.a2{background:#d89e00}.a3{background:#26890c}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.center{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.pop{animation:pop .45s cubic-bezier(.2,1.6,.4,1)}@keyframes pop{from{transform:scale(.5);opacity:0}to{transform:none;opacity:1}}
+.hidden{display:none!important}
+.logo{font-weight:900;font-size:2em;letter-spacing:-1px}.logo b{color:#ffd600}

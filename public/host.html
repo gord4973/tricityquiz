@@ -1,0 +1,43 @@
+<!doctype html><html><head><meta name=viewport content="width=device-width,initial-scale=1"><title>QuizBlast Host</title><link rel=stylesheet href=/style.css>
+<style>body{overflow:hidden}section{position:fixed;inset:0;padding:3vh 3vw;display:flex;flex-direction:column}
+.join{display:flex;gap:4vw;align-items:center;justify-content:center;margin-top:2vh}.url{font-size:4.2vw;font-weight:900;background:#fff;color:#46178f;padding:1vh 2vw;border-radius:16px}.pin{font-size:9vw;font-weight:900;letter-spacing:.5vw;line-height:1}
+#qr{background:#fff;padding:10px;border-radius:12px;width:22vh;height:22vh}#plist{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:3vh;overflow:auto;flex:1;align-content:flex-start}#plist span{background:#fff3;padding:8px 16px;border-radius:30px;font-weight:700;font-size:1.3em}
+.qtext{background:#fff;color:#222;font-size:3.2vw;font-weight:900;text-align:center;border-radius:12px;padding:2vh 2vw}.mid{flex:1;display:flex;align-items:center;justify-content:space-between;gap:2vw}
+.circle{width:16vh;height:16vh;border-radius:50%;background:#46178f;border:6px solid #fff;display:flex;align-items:center;justify-content:center;font-size:7vh;font-weight:900}
+.ptsbox{text-align:center;background:#fff;color:#26890c;border-radius:16px;padding:1vh 2vw;min-width:18vh}.ptsbox b{font-size:7vh;display:block;line-height:1}
+.bar{height:1.4vh;background:#fff3;border-radius:9px;overflow:hidden;margin:1vh 0}.bar i{display:block;height:100%;background:#ffd600;width:100%}
+.ag .ans{font-size:2.4vw;padding:2.5vh 2vw}.ag .ans.dim{opacity:.25}.chart{display:flex;gap:2vw;align-items:flex-end;height:30vh;justify-content:center}.chart div{width:9vw;border-radius:8px 8px 0 0;text-align:center;font-size:3vh;font-weight:900;transition:height .8s;min-height:6vh;display:flex;flex-direction:column;justify-content:flex-start;padding-top:1vh}
+.lb div{display:flex;justify-content:space-between;background:#fff;color:#222;margin:1vh auto;max-width:900px;padding:1.6vh 2vw;border-radius:10px;font-size:3vh;font-weight:900}
+.pod{display:flex;align-items:flex-end;gap:2vw;justify-content:center;flex:1}.pod div{width:20vw;text-align:center;border-radius:12px 12px 0 0;background:#fff2;font-weight:900;font-size:3vh;padding-top:2vh}.top{display:flex;justify-content:space-between;align-items:center}</style></head><body>
+<section id=lobby><div class=top><div class=logo>Quiz<b>Blast</b></div><div id=gtitle style="font-size:3vh;font-weight:700"></div></div>
+<div class="join pop"><div class=center><div style="font-size:2.6vh">Join on your phone at</div><div class=url id=url></div><div style="font-size:2.6vh;margin-top:2vh">Game PIN</div><div class=pin id=pin>····</div></div><img id=qr></div>
+<div class=top style="margin-top:2vh"><div style="font-size:3vh;font-weight:900">👥 <span id=pcount>0</span> / 150 players</div><button class=green style="font-size:3vh" onclick=next()>Start ▶</button></div><div id=plist></div></section>
+<section id=qs class=hidden><div class=top><b id=qnum style="font-size:2.5vh"></b><span style="font-size:2.5vh">PIN <b id=pin2></b> · <span id=acount>0</span> answers</span><button class=ghost onclick=skip()>Skip ⏭</button></div><div class="qtext pop" id=qtext></div>
+<div class=mid><div class=circle id=tleft>20</div><img id=qimg style="max-height:32vh;max-width:50vw;border-radius:12px"><div class=ptsbox>Points<b id=pts>100</b></div></div><div class=bar><i id=tbar></i></div><div class="grid ag" id=agrid></div></section>
+<section id=rv class=hidden><div class=top><b id=rnum style="font-size:2.5vh"></b><button class=green style="font-size:3vh" onclick=next() id=nbtn>Next ▶</button></div><div class=qtext id=rtext></div><div class=chart id=chart style="margin:3vh 0"></div><div class="grid ag" id=rgrid></div></section>
+<section id=lbs class=hidden><div class=top><div class=logo>Leaderboard</div><button class=green style="font-size:3vh" onclick=next() id=nbtn2>Next question ▶</button></div><div class=lb id=lb></div></section>
+<section id=fin class="hidden center"><div class=logo style="font-size:6vh">🏆 Final podium</div><div class=pod id=pod></div><a class="btn ghost" href=/admin>Back to games</a></section>
+<script src=/socket.io/socket.io.js></script><script>
+const SH=['▲','◆','●','■'],s=io(),$=id=>document.getElementById(id);let raf,top5=[],Q,qn=0,nq=0;
+const esc=t=>String(t).replace(/[&<>"]/g,c=>'&#'+c.charCodeAt(0)+';');
+function show(id){['lobby','qs','rv','lbs','fin'].forEach(x=>$(x).classList.toggle('hidden',x!==id))}
+const gid=new URLSearchParams(location.search).get('g');
+s.emit('host:create',{pw:localStorage.pw,gameId:gid},r=>{if(r.error){alert('Please log in on /admin first');return location='/admin'}nq=r.n;
+ $('pin').textContent=$('pin2').textContent=r.pin;$('gtitle').textContent=r.title;const u=location.host+'/j/'+r.pin;$('url').textContent=u;$('qr').src='/api/qr?u='+encodeURIComponent(location.protocol+'//'+u)});
+s.on('players',l=>{$('pcount').textContent=l.length;$('plist').innerHTML=l.map(n=>`<span class=pop>${esc(n)}</span>`).join('')});
+s.on('answered',n=>$('acount').textContent=n);
+let stage='lobby';function next(){if(stage==='reveal'&&qn<nq){stage='lb';return show('lbs')}s.emit('host:next')}
+function skip(){s.emit('host:skip')}
+s.on('question',q=>{Q=q;qn=q.i+1;stage='q';show('qs');$('qnum').textContent=`Question ${q.i+1} of ${q.n}`;$('qtext').textContent=q.text;$('acount').textContent=0;
+ $('qimg').src=q.image||'';$('qimg').style.display=q.image?'':'none';$('agrid').innerHTML=q.answers.map((a,j)=>`<div class="ans a${j} pop"><span class=sh>${SH[j]}</span>${esc(a)}</div>`).join('');
+ const t0=performance.now();cancelAnimationFrame(raf);(function tick(){const el=Math.min(performance.now()-t0,q.dur),f=el/q.dur;
+ $('tleft').textContent=Math.ceil((q.dur-el)/1000);$('pts').textContent=Math.max(10,Math.round(100-90*f));$('tbar').style.width=(100-100*f)+'%';if(el<q.dur)raf=requestAnimationFrame(tick)})()});
+s.on('reveal',r=>{cancelAnimationFrame(raf);stage='reveal';top5=r.top;show('rv');$('rnum').textContent=`Question ${qn} of ${nq}`;$('rtext').textContent=Q.text;
+ const m=Math.max(1,...r.dist);$('chart').innerHTML=r.dist.map((d,j)=>`<div class=a${j} style="height:6vh">${d}<br>${SH[j]}${j===r.correct?' ✔':''}</div>`).join('');
+ setTimeout(()=>[...$('chart').children].forEach((c,j)=>c.style.height=(6+24*r.dist[j]/m)+'vh'),50);
+ $('rgrid').innerHTML=Q.answers.map((a,j)=>`<div class="ans a${j} ${j===r.correct?'pop':'dim'}"><span class=sh>${SH[j]}</span>${esc(a)} ${j===r.correct?'✔':''}</div>`).join('');
+ $('nbtn').textContent=qn<nq?'Leaderboard ▶':'Final results 🏆';
+ $('lb').innerHTML=r.top.map((p,i)=>`<div class=pop style="animation-delay:${i*.1}s"><span>${i+1}. ${esc(p.name)}</span><span>${p.score}</span></div>`).join('')||'<div>No players</div>'});
+s.on('end',r=>{show('fin');const o=[1,0,2],h=[30,42,22],c=['#c0c0c0','#ffd600','#cd7f32'];
+ $('pod').innerHTML=o.map(i=>r.top[i]?`<div class=pop style="height:${h[i]}vh;background:${c[i]};color:#222;animation-delay:${(2-i)*.5}s">${['🥇','🥈','🥉'][i]}<br>${esc(r.top[i].name)}<br>${r.top[i].score}</div>`:'').join('')});
+</script></body></html>

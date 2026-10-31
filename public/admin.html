@@ -1,0 +1,30 @@
+<!doctype html><html><head><meta name=viewport content="width=device-width,initial-scale=1"><title>Quiz Admin</title><link rel=stylesheet href=/style.css>
+<style>main{max-width:900px;margin:auto;padding:20px}.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.q{margin:16px 0}.opt{display:flex;gap:8px;align-items:center;margin:6px 0}.opt input[type=radio]{width:28px;height:28px}.opt .sw{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff}.gl .card{margin:12px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}</style></head><body><main>
+<div class=logo>Quiz<b>Blast</b> <small style="font-size:.5em">Host</small></div>
+<div id=login class="card pop" style="margin-top:30px"><h2>Host login</h2><input id=pw type=password placeholder="Host password" inputmode=numeric><br><br><button class=green onclick=login()>Log in</button> <span id=lerr style=color:#e21b3c></span></div>
+<div id=list class=hidden><div class=row style="margin:20px 0"><button class=green onclick="edit()">+ New game</button></div><div id=games class=gl></div></div>
+<div id=editor class=hidden><div class=card style="margin-top:20px"><input id=title placeholder="Game title" style="font-size:1.4em;font-weight:700"></div><div id=qs></div>
+<div class=row><button class=blue onclick="addQ()">+ Add question</button><button class=green onclick="saveG()">💾 Save game</button><button class=ghost onclick="show('list')">Cancel</button><span id=msg></span></div></div>
+</main><script>
+const SH=['▲','◆','●','■'];let PW=localStorage.pw||'',G=null;
+const api=(u,o={})=>fetch(u,{...o,headers:{'content-type':'application/json','x-pw':PW}}).then(r=>r.json());
+function show(id){['login','list','editor'].forEach(x=>document.getElementById(x).classList.toggle('hidden',x!==id));if(id=='list')load()}
+async function login(){PW=pw.value||PW;const r=await api('/api/login',{method:'POST',body:JSON.stringify({pw:PW})});if(r.ok){localStorage.pw=PW;show('list')}else lerr.textContent='Wrong password'}
+async function load(){const gs=await api('/api/games');games.innerHTML=gs.length?'':'<div class=card>No games yet — tap “New game”.</div>';
+ gs.sort((a,b)=>b.updated-a.updated).forEach(g=>{const d=document.createElement('div');d.className='card';d.innerHTML=`<div><b style="font-size:1.2em"></b><br><small>${g.questions.length} questions</small></div><div class=row><button class=green>▶ Start</button><button class=blue>✏️ Edit</button><button class=red>🗑</button></div>`;
+ d.querySelector('b').textContent=g.title;const [s,e,x]=d.querySelectorAll('button');s.onclick=()=>location='/host?g='+g.id;e.onclick=()=>edit(g);
+ x.onclick=async()=>{if(confirm('Delete "'+g.title+'"?')){await api('/api/games/'+g.id,{method:'DELETE'});load()}};games.appendChild(d)})}
+function edit(g){G=g?JSON.parse(JSON.stringify(g)):{title:'',questions:[]};if(!G.questions.length)G.questions.push(blank());title.value=G.title;render();show('editor')}
+const blank=()=>({text:'',answers:['','','',''],correct:0,image:''});
+function addQ(){sync();G.questions.push(blank());render();scrollTo(0,1e6)}
+function sync(){G.title=title.value;document.querySelectorAll('.q').forEach((el,i)=>{const q=G.questions[i];q.text=el.querySelector('.qt').value;q.image=el.querySelector('.qi').value.trim();el.querySelectorAll('.at').forEach((a,j)=>q.answers[j]=a.value);q.correct=+(el.querySelector('input[type=radio]:checked')||{value:0}).value})}
+function render(){qs.innerHTML='';G.questions.forEach((q,i)=>{const d=document.createElement('div');d.className='card q pop';
+ d.innerHTML=`<div class=row style="justify-content:space-between"><b>Question ${i+1}</b><span><button class=ghost style="color:#333" data-m=-1>↑</button> <button class=ghost style="color:#333" data-m=1>↓</button> <button class=red data-d>✕</button></span></div><textarea class=qt rows=2 placeholder="Type your question"></textarea><input class=qi placeholder="Image URL (optional)" style="margin-top:6px">`+
+ [0,1,2,3].map(j=>`<label class=opt><span class="sw a${j}">${SH[j]}</span><input class=at placeholder="Answer ${j+1}"><input type=radio name=c${i} value=${j} title="Correct answer">✔</label>`).join('')+'<small>Tick ✔ next to the correct answer.</small>';
+ d.querySelector('.qt').value=q.text;d.querySelector('.qi').value=q.image||'';d.querySelectorAll('.at').forEach((a,j)=>a.value=q.answers[j]);d.querySelectorAll('input[type=radio]')[q.correct].checked=true;
+ d.querySelector('[data-d]').onclick=()=>{sync();G.questions.splice(i,1);render()};
+ d.querySelectorAll('[data-m]').forEach(b=>b.onclick=()=>{sync();const k=i+ +b.dataset.m;if(k<0||k>=G.questions.length)return;[G.questions[i],G.questions[k]]=[G.questions[k],G.questions[i]];render()});qs.appendChild(d)})}
+async function saveG(){sync();if(!G.title.trim())return msg.textContent='Add a title';const bad=G.questions.findIndex(q=>!q.text.trim()||q.answers.some(a=>!a.trim()));
+ if(bad>=0)return msg.textContent='Question '+(bad+1)+' needs text and all 4 answers';G=await api('/api/games',{method:'POST',body:JSON.stringify(G)});msg.textContent='Saved ✓';setTimeout(()=>{msg.textContent='';show('list')},600)}
+if(PW)login();else show('login');
+</script></body></html>
