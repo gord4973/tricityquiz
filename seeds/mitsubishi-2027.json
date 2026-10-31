@@ -1,0 +1,337 @@
+{
+ "id": "mitsubishi-2027",
+ "updated": 0,
+ "title": "Mitsubishi 2027 Lineup Challenge",
+ "questions": [
+  {
+   "text": "Which new 2027 Mitsubishi is fully electric?",
+   "answers": [
+    "Eclipse Sportback",
+    "Mirage EV",
+    "RVR EV",
+    "Eclipse Cross EV"
+   ],
+   "correct": 0,
+   "image": ""
+  },
+  {
+   "text": "Which is Canada's best-selling plug-in hybrid?",
+   "answers": [
+    "Toyota RAV4 PHEV",
+    "Mitsubishi Outlander PHEV",
+    "Ford Escape PHEV",
+    "Kia Sportage PHEV"
+   ],
+   "correct": 1,
+   "image": ""
+  },
+  {
+   "text": "Mitsubishi's powertrain limited warranty?",
+   "answers": [
+    "5 yr / 100,000 km",
+    "7 yr / 120,000 km",
+    "10 yr / 160,000 km",
+    "10 yr / 200,000 km"
+   ],
+   "correct": 2,
+   "image": ""
+  },
+  {
+   "text": "Mitsubishi roadside assistance coverage?",
+   "answers": [
+    "3 yr / 60,000 km",
+    "5 yr / unlimited km",
+    "10 yr / 160,000 km",
+    "2 yr / unlimited km"
+   ],
+   "correct": 1,
+   "image": ""
+  },
+  {
+   "text": "What does S-AWC stand for?",
+   "answers": [
+    "Smart Auto Wheel Control",
+    "Sport Active Wheel Control",
+    "Super Active Weight Control",
+    "Super All-Wheel Control"
+   ],
+   "correct": 3,
+   "image": ""
+  },
+  {
+   "text": "Mitsubishi's smallest SUV in Canada?",
+   "answers": [
+    "RVR",
+    "Eclipse Cross",
+    "Outlander",
+    "Mirage"
+   ],
+   "correct": 0,
+   "image": ""
+  },
+  {
+   "text": "How many seat rows in every Outlander PHEV?",
+   "answers": [
+    "2",
+    "2 or 3 (optional)",
+    "3",
+    "4"
+   ],
+   "correct": 2,
+   "image": ""
+  },
+  {
+   "text": "Which trim blacks out all exterior chrome?",
+   "answers": [
+    "GT",
+    "NOIR",
+    "SEL",
+    "LE"
+   ],
+   "correct": 1,
+   "image": ""
+  },
+  {
+   "text": "What powers the gas Outlander now?",
+   "answers": [
+    "2.5L non-turbo 4-cyl",
+    "3.0L V6",
+    "1.5L turbo mild hybrid",
+    "2.0L turbo diesel"
+   ],
+   "correct": 2,
+   "image": ""
+  },
+  {
+   "text": "Where is Mitsubishi Canada's head office?",
+   "answers": [
+    "Toronto",
+    "Vancouver",
+    "Montreal",
+    "Mississauga"
+   ],
+   "correct": 3,
+   "image": ""
+  },
+  {
+   "text": "2026 Outlander PHEV EV-only range?",
+   "answers": [
+    "54 km",
+    "61 km",
+    "72 km",
+    "90 km"
+   ],
+   "correct": 2,
+   "image": ""
+  },
+  {
+   "text": "Eclipse Sportback max range per charge?",
+   "answers": [
+    "380 km",
+    "454 km",
+    "402 km",
+    "520 km"
+   ],
+   "correct": 1,
+   "image": ""
+  },
+  {
+   "text": "Eclipse Sportback starting MSRP?",
+   "answers": [
+    "$44,998",
+    "$48,998",
+    "$52,498",
+    "$54,098"
+   ],
+   "correct": 1,
+   "image": ""
+  },
+  {
+   "text": "Sportback DC fast-charge plug type?",
+   "answers": [
+    "CHAdeMO",
+    "CCS1",
+    "J1772",
+    "NACS (Tesla)"
+   ],
+   "correct": 3,
+   "image": ""
+  },
+  {
+   "text": "Max towing, gas Outlander?",
+   "answers": [
+    "680 kg (1,500 lb)",
+    "907 kg (2,000 lb)",
+    "1,360 kg (3,000 lb)",
+    "1,588 kg (3,500 lb)"
+   ],
+   "correct": 1,
+   "image": ""
+  },
+  {
+   "text": "Which 2027 model went on sale first (Aug)?",
+   "answers": [
+    "RVR",
+    "Outlander",
+    "Outlander PHEV",
+    "Eclipse Cross"
+   ],
+   "correct": 0,
+   "image": ""
+  },
+  {
+   "text": "Mitsubishi's top seller in Canada, H1 2026?",
+   "answers": [
+    "Outlander",
+    "Outlander PHEV",
+    "RVR",
+    "Eclipse Cross"
+   ],
+   "correct": 2,
+   "image": ""
+  },
+  {
+   "text": "Name of the new rugged 2028 Outlander?",
+   "answers": [
+    "Ralliart Edition",
+    "Diamond Trail Edition",
+    "Dakar Edition",
+    "Trail Boss Edition"
+   ],
+   "correct": 1,
+   "image": ""
+  },
+  {
+   "text": "New vehicle limited warranty?",
+   "answers": [
+    "3 yr / 60,000 km",
+    "4 yr / 80,000 km",
+    "5 yr / 100,000 km",
+    "5 yr / unlimited km"
+   ],
+   "correct": 2,
+   "image": ""
+  },
+  {
+   "text": "What engine powers the Eclipse Cross?",
+   "answers": [
+    "2.4L 4-cylinder",
+    "1.5L turbo 4-cylinder",
+    "2.0L 4-cylinder",
+    "1.2L 3-cylinder"
+   ],
+   "correct": 1,
+   "image": ""
+  },
+  {
+   "text": "2026 Outlander PHEV battery capacity?",
+   "answers": [
+    "18.1 kWh",
+    "20.0 kWh",
+    "22.7 kWh",
+    "25.5 kWh"
+   ],
+   "correct": 2,
+   "image": ""
+  },
+  {
+   "text": "2026 Outlander PHEV total system hp?",
+   "answers": [
+    "248 hp",
+    "268 hp",
+    "297 hp",
+    "315 hp"
+   ],
+   "correct": 2,
+   "image": ""
+  },
+  {
+   "text": "Gas (mild hybrid) Outlander horsepower?",
+   "answers": [
+    "152 hp",
+    "174 hp",
+    "181 hp",
+    "201 hp"
+   ],
+   "correct": 1,
+   "image": ""
+  },
+  {
+   "text": "Gas (mild hybrid) Outlander torque?",
+   "answers": [
+    "181 lb-ft",
+    "184 lb-ft",
+    "206 lb-ft",
+    "245 lb-ft"
+   ],
+   "correct": 2,
+   "image": ""
+  },
+  {
+   "text": "Eclipse Sportback battery capacity?",
+   "answers": [
+    "60 kWh",
+    "64 kWh",
+    "75 kWh",
+    "82 kWh"
+   ],
+   "correct": 2,
+   "image": ""
+  },
+  {
+   "text": "Eclipse Cross horsepower?",
+   "answers": [
+    "148 hp",
+    "152 hp",
+    "168 hp",
+    "174 hp"
+   ],
+   "correct": 1,
+   "image": ""
+  },
+  {
+   "text": "Engine in RVR SE AWC and up?",
+   "answers": [
+    "2.0L, 148 hp",
+    "1.5L turbo, 152 hp",
+    "2.4L, 168 hp",
+    "2.4L, 181 hp"
+   ],
+   "correct": 2,
+   "image": ""
+  },
+  {
+   "text": "Federal EVAP rebate the Sportback gets?",
+   "answers": [
+    "$2,500",
+    "$3,000",
+    "$5,000",
+    "$7,500"
+   ],
+   "correct": 2,
+   "image": ""
+  },
+  {
+   "text": "Outlander PHEV DC fast-charge standard?",
+   "answers": [
+    "CHAdeMO",
+    "NACS (Tesla)",
+    "CCS1",
+    "None available"
+   ],
+   "correct": 0,
+   "image": ""
+  },
+  {
+   "text": "PHEV Level 2 (240V) charge time, approx.?",
+   "answers": [
+    "3.5 hours",
+    "6.5 hours",
+    "9 hours",
+    "12 hours"
+   ],
+   "correct": 1,
+   "image": ""
+  }
+ ]
+}
