@@ -21,8 +21,9 @@
 const SH=['▲','◆','●','■'],s=io(),$=id=>document.getElementById(id);let raf,top5=[],Q,qn=0,nq=0;
 const esc=t=>String(t).replace(/[&<>"]/g,c=>'&#'+c.charCodeAt(0)+';');
 function show(id){['lobby','qs','rv','lbs','fin'].forEach(x=>$(x).classList.toggle('hidden',x!==id))}
-const gid=new URLSearchParams(location.search).get('g');
-s.emit('host:create',{pw:localStorage.pw,gameId:gid},r=>{if(r.error){alert('Please log in on /admin first');return location='/admin'}nq=r.n;
+const gid=new URLSearchParams(location.search).get('g');let PIN;
+s.on('connect',()=>{if(PIN)s.emit('host:resume',{pw:localStorage.pw,pin:PIN},()=>{})});
+s.emit('host:create',{pw:localStorage.pw,gameId:gid},r=>{if(r.error){alert('Please log in on /admin first');return location='/admin'}nq=r.n;PIN=r.pin;
  $('pin').textContent=$('pin2').textContent=r.pin;$('gtitle').textContent=r.title;const u=location.host+'/j/'+r.pin;$('url').textContent=u;$('qr').src='/api/qr?u='+encodeURIComponent(location.protocol+'//'+u)});
 s.on('players',l=>{$('pcount').textContent=l.length;$('plist').innerHTML=l.map(n=>`<span class=pop>${esc(n)}</span>`).join('')});
 s.on('answered',n=>$('acount').textContent=n);

@@ -50,7 +50,8 @@ io.on('connection',s=>{
   p.ans[R.qi]={c,ok,pts:g};p.score+=g;cb&&cb({ok:1});
   const cnt=Object.values(R.players).filter(x=>x.ans[R.qi]).length;io.to(R.host).emit('answered',cnt);
   if(cnt===Object.keys(R.players).length)endQ(R)});
- s.on('disconnect',()=>{const pin=s.data.hostPin;if(pin){clearTimeout(rooms[pin]?.timer);io.to(pin).emit('hostgone');delete rooms[pin]}
+ s.on('host:resume',({pw,pin},cb)=>{const R=rooms[pin];if(pw!==PW||!R)return cb({error:'gone'});clearTimeout(R.gone);R.host=s.id;s.join(pin);s.data.hostPin=pin;cb({ok:1});io.to(R.host).emit('players',Object.values(R.players).map(p=>p.name))});
+ s.on('disconnect',()=>{const pin=s.data.hostPin,R0=rooms[pin];if(R0&&R0.host===s.id){R0.gone=setTimeout(()=>{clearTimeout(R0.timer);io.to(pin).emit('hostgone');delete rooms[pin]},10*60000)}
   const R=rooms[s.data.pin];if(R&&R.state==='lobby'){delete R.players[s.id];io.to(R.host).emit('players',Object.values(R.players).map(p=>p.name))}});
 });
 module.exports={pts};

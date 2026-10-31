@@ -7,5 +7,5 @@ const pin=await p.$eval('#pin',e=>e.textContent);const ss=[];for(const n of['Gor
 await new Promise(r=>setTimeout(r,1500));await p.screenshot({path:'screens/live-lobby.png'});
 const m=await b.newPage();await m.setViewport({width:390,height:844,isMobile:true});await m.goto(B+'/j/'+pin,{waitUntil:'networkidle0'});await m.type('#nm','Phone_Phil');await m.click('button.green');
 await new Promise(r=>setTimeout(r,800));await p.evaluate(()=>next());await new Promise(r=>setTimeout(r,3000));await p.screenshot({path:'screens/live-question.png'});await m.screenshot({path:'screens/live-player-question.png'});
-ss.forEach((s,i)=>s.emit('answer',i%4));await m.click('#ans button:nth-child(2)');const t=Date.now();await p.waitForSelector('#rv:not(.hidden)');console.log('early lock after all answered:',Date.now()-t,'ms');
+ss.forEach((s,i)=>s.emit('answer',i%4));await m.click('#ans button:nth-child(2)');await p.bringToFront();const t=Date.now();await p.waitForSelector('#rv:not(.hidden)',{timeout:60000});console.log('early lock after all answered:',Date.now()-t,'ms');
 await new Promise(r=>setTimeout(r,1500));await p.screenshot({path:'screens/live-reveal.png'});await m.screenshot({path:'screens/live-player-result.png'});await b.close();process.exit(0)})();
