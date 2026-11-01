@@ -1,7 +1,7 @@
 # Outlander Quizzes
 
-## 2026 Outlander Trim Sales Guide Quiz (id `outlander-2026-training`)
-Source: /workspace/outlander-guides/email/Outlander Trim Sales Guide.pdf (12 pp)
+## 2026 Outlander Sales Guide Quiz (id `outlander-2026-training`)
+Source: /workspace/uploads/training-guides/Outlander Trim Sales Guide.pdf (12 pp)
 
 1. How many seats does every 2026 Outlander have?  
    Answers: 5 / 7 / 6 / 8  
@@ -94,8 +94,8 @@ Source: /workspace/outlander-guides/email/Outlander Trim Sales Guide.pdf (12 pp)
    Answers: $13,350 / $11,000 / $16,050 / $12,600  
    **Correct: $13,350** (guide p4)
 
-## 2026 Outlander PHEV Trim Sales Guide Quiz (id `outlander-phev-training`)
-Source: /workspace/outlander-guides/email/Outlander PHEV Trim Sales Guide.pdf (12 pp)
+## 2026 Outlander PHEV Sales Guide Quiz (id `outlander-phev-training`)
+Source: /workspace/uploads/training-guides/Outlander PHEV Trim Sales Guide.pdf (12 pp)
 
 1. How many seats does every 2026 Outlander PHEV have?  
    Answers: 5 / 7 / 6 / 8  
