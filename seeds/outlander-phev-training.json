@@ -1,0 +1,337 @@
+{
+ "id": "outlander-phev-training",
+ "updated": 0,
+ "title": "2026 Outlander PHEV Trim Sales Guide Quiz",
+ "questions": [
+  {
+   "text": "How many seats does every 2026 Outlander PHEV have?",
+   "answers": [
+    "5",
+    "7",
+    "6",
+    "8"
+   ],
+   "correct": 1,
+   "image": ""
+  },
+  {
+   "text": "What type of vehicle is the Outlander PHEV?",
+   "answers": [
+    "Plug-in hybrid",
+    "Mild hybrid",
+    "Full electric",
+    "Diesel hybrid"
+   ],
+   "correct": 0,
+   "image": ""
+  },
+  {
+   "text": "Which AWC system is on every PHEV trim?",
+   "answers": [
+    "AWC Lite",
+    "Part-time 4WD",
+    "FWD only",
+    "S-AWC"
+   ],
+   "correct": 3,
+   "image": ""
+  },
+  {
+   "text": "Electric range on a full charge?",
+   "answers": [
+    "61 km",
+    "84 km",
+    "72 km",
+    "50 km"
+   ],
+   "correct": 2,
+   "image": ""
+  },
+  {
+   "text": "Total range, gas plus electric?",
+   "answers": [
+    "600 km",
+    "690 km",
+    "750 km",
+    "820 km"
+   ],
+   "correct": 1,
+   "image": ""
+  },
+  {
+   "text": "Starting MSRP of the PHEV ES?",
+   "answers": [
+    "$46,998",
+    "$44,998",
+    "$52,598",
+    "$49,498"
+   ],
+   "correct": 0,
+   "image": ""
+  },
+  {
+   "text": "Top PHEV trim?",
+   "answers": [
+    "GT PREMIUM",
+    "GT",
+    "SEL",
+    "GT NOIR"
+   ],
+   "correct": 3,
+   "image": ""
+  },
+  {
+   "text": "Total system output in max POWER mode?",
+   "answers": [
+    "174 hp",
+    "221 hp",
+    "248 hp",
+    "302 hp"
+   ],
+   "correct": 2,
+   "image": ""
+  },
+  {
+   "text": "Total torque in max POWER mode?",
+   "answers": [
+    "206 lb-ft",
+    "332 lb-ft",
+    "302 lb-ft",
+    "350 lb-ft"
+   ],
+   "correct": 1,
+   "image": ""
+  },
+  {
+   "text": "Battery capacity of the PHEV?",
+   "answers": [
+    "22.7 kWh",
+    "20.0 kWh",
+    "13.8 kWh",
+    "25.5 kWh"
+   ],
+   "correct": 0,
+   "image": ""
+  },
+  {
+   "text": "PHEV towing capacity?",
+   "answers": [
+    "907 kg (2,000 lb)",
+    "454 kg (1,000 lb)",
+    "1,134 kg (2,500 lb)",
+    "680 kg (1,500 lb)"
+   ],
+   "correct": 3,
+   "image": ""
+  },
+  {
+   "text": "Gas engine size in the PHEV?",
+   "answers": [
+    "1.5L turbo",
+    "2.0L",
+    "2.4L",
+    "2.5L"
+   ],
+   "correct": 2,
+   "image": ""
+  },
+  {
+   "text": "Battery limited warranty on the PHEV?",
+   "answers": [
+    "8 yr / 160,000 km",
+    "10 yr / 160,000 km",
+    "5 yr / 100,000 km",
+    "10 yr / 200,000 km"
+   ],
+   "correct": 1,
+   "image": ""
+  },
+  {
+   "text": "Which DC fast-charge standard does the PHEV use?",
+   "answers": [
+    "CHAdeMO",
+    "CCS1",
+    "NACS",
+    "Type 2"
+   ],
+   "correct": 0,
+   "image": ""
+  },
+  {
+   "text": "Level 1 (120V) charge time?",
+   "answers": [
+    "About 8 hours",
+    "About 12 hours",
+    "About 22 hours",
+    "About 16.5 hours"
+   ],
+   "correct": 3,
+   "image": ""
+  },
+  {
+   "text": "Level 2 (240V) charge time?",
+   "answers": [
+    "About 3.5 hours",
+    "About 9 hours",
+    "About 6.5 hours",
+    "About 4.5 hours"
+   ],
+   "correct": 2,
+   "image": ""
+  },
+  {
+   "text": "DC fast charge to 80% takes about?",
+   "answers": [
+    "15 minutes",
+    "29 minutes",
+    "45 minutes",
+    "60 minutes"
+   ],
+   "correct": 1,
+   "image": ""
+  },
+  {
+   "text": "Output of the standard power supply?",
+   "answers": [
+    "1,500 W",
+    "1,000 W",
+    "2,400 W",
+    "3,000 W"
+   ],
+   "correct": 0,
+   "image": ""
+  },
+  {
+   "text": "Rated electric-mode consumption, combined?",
+   "answers": [
+    "2.4 Le/100 km",
+    "4.1 Le/100 km",
+    "8.6 Le/100 km",
+    "3.2 Le/100 km"
+   ],
+   "correct": 3,
+   "image": ""
+  },
+  {
+   "text": "Gas-only combined fuel economy?",
+   "answers": [
+    "8.7 L/100 km",
+    "7.4 L/100 km",
+    "8.6 L/100 km",
+    "9.2 L/100 km"
+   ],
+   "correct": 2,
+   "image": ""
+  },
+  {
+   "text": "Rear electric motor output?",
+   "answers": [
+    "114 hp",
+    "134 hp",
+    "131 hp",
+    "94 hp"
+   ],
+   "correct": 1,
+   "image": ""
+  },
+  {
+   "text": "Which driver feature is already standard on the PHEV ES?",
+   "answers": [
+    "Adaptive Cruise Control",
+    "Head-Up Display",
+    "Panoramic sunroof",
+    "Leather seats"
+   ],
+   "correct": 0,
+   "image": ""
+  },
+  {
+   "text": "How much more is the PHEV SE than the ES?",
+   "answers": [
+    "+$2,700",
+    "+$2,200",
+    "+$3,000",
+    "+$5,600"
+   ],
+   "correct": 3,
+   "image": ""
+  },
+  {
+   "text": "Which trim adds the Multi View Camera System?",
+   "answers": [
+    "ES",
+    "SE",
+    "LE",
+    "GT"
+   ],
+   "correct": 2,
+   "image": ""
+  },
+  {
+   "text": "PHEV SEL starting MSRP?",
+   "answers": [
+    "$54,798",
+    "$57,598",
+    "$60,598",
+    "$56,198"
+   ],
+   "correct": 1,
+   "image": ""
+  },
+  {
+   "text": "On the GT, Active Blind Spot Assist replaces what?",
+   "answers": [
+    "Blind Spot Warning",
+    "Lane Departure Warning",
+    "Rear Cross Traffic Alert",
+    "Forward Collision Mitigation"
+   ],
+   "correct": 0,
+   "image": ""
+  },
+  {
+   "text": "What does GT PREMIUM add that the gas Outlander's doesn't?",
+   "answers": [
+    "Semi-aniline leather",
+    "Digital rearview mirror",
+    "Head-Up Display",
+    "Front seat massage"
+   ],
+   "correct": 3,
+   "image": ""
+  },
+  {
+   "text": "GT PREMIUM semi-aniline leather colour?",
+   "answers": [
+    "Saddle Tan",
+    "Black",
+    "Brick Brown",
+    "Mocha"
+   ],
+   "correct": 2,
+   "image": ""
+  },
+  {
+   "text": "PHEV GT NOIR starting MSRP?",
+   "answers": [
+    "$61,698",
+    "$63,048",
+    "$60,598",
+    "$64,498"
+   ],
+   "correct": 1,
+   "image": ""
+  },
+  {
+   "text": "Price spread from PHEV ES to GT NOIR?",
+   "answers": [
+    "$16,050",
+    "$13,350",
+    "$14,600",
+    "$18,200"
+   ],
+   "correct": 0,
+   "image": ""
+  }
+ ]
+}
