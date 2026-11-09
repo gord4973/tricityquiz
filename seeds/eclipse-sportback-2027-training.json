@@ -1,0 +1,337 @@
+{
+ "id": "eclipse-sportback-2027-training",
+ "updated": 0,
+ "title": "2027 Eclipse Sportback Sales Guide Quiz",
+ "questions": [
+  {
+   "text": "What type of vehicle is the 2027 Eclipse Sportback?",
+   "answers": [
+    "Plug-in hybrid",
+    "Mild hybrid",
+    "All-electric",
+    "Gasoline only"
+   ],
+   "correct": 2,
+   "image": ""
+  },
+  {
+   "text": "How many seats does every Eclipse Sportback have?",
+   "answers": [
+    "4",
+    "5",
+    "6",
+    "7"
+   ],
+   "correct": 1,
+   "image": ""
+  },
+  {
+   "text": "What drivetrain does the Eclipse Sportback use?",
+   "answers": [
+    "AWD",
+    "RWD",
+    "4WD Lock",
+    "Front-wheel drive"
+   ],
+   "correct": 3,
+   "image": ""
+  },
+  {
+   "text": "How much horsepower does the Eclipse Sportback make?",
+   "answers": [
+    "181 hp",
+    "214 hp",
+    "248 hp",
+    "174 hp"
+   ],
+   "correct": 1,
+   "image": ""
+  },
+  {
+   "text": "How much torque does the Eclipse Sportback make?",
+   "answers": [
+    "206 lb-ft",
+    "245 lb-ft",
+    "261 lb-ft",
+    "332 lb-ft"
+   ],
+   "correct": 2,
+   "image": ""
+  },
+  {
+   "text": "What size is the Eclipse Sportback battery?",
+   "answers": [
+    "50 kWh",
+    "60 kWh",
+    "75 kWh",
+    "90 kWh"
+   ],
+   "correct": 2,
+   "image": ""
+  },
+  {
+   "text": "Estimated range on a full charge?",
+   "answers": [
+    "350 km",
+    "400 km",
+    "454 km",
+    "500 km"
+   ],
+   "correct": 2,
+   "image": ""
+  },
+  {
+   "text": "Cargo space behind the rear seats?",
+   "answers": [
+    "308 L",
+    "566 L",
+    "866 L",
+    "1,062 L"
+   ],
+   "correct": 1,
+   "image": ""
+  },
+  {
+   "text": "Max cargo with seats folded?",
+   "answers": [
+    "1,200 L",
+    "1,572 L",
+    "1,822 L",
+    "2,040 L"
+   ],
+   "correct": 1,
+   "image": ""
+  },
+  {
+   "text": "Powertrain and EV battery warranty?",
+   "answers": [
+    "5 yr / 100,000 km",
+    "7 yr / 120,000 km",
+    "10 yr / 160,000 km",
+    "10 yr / 200,000 km"
+   ],
+   "correct": 2,
+   "image": ""
+  },
+  {
+   "text": "Combined efficiency rating?",
+   "answers": [
+    "1.9 Le/100 km",
+    "2.1 Le/100 km",
+    "2.3 Le/100 km",
+    "2.5 Le/100 km"
+   ],
+   "correct": 1,
+   "image": ""
+  },
+  {
+   "text": "City / highway efficiency?",
+   "answers": [
+    "1.9 city, 2.3 highway",
+    "2.1 city, 2.1 highway",
+    "2.3 city, 1.9 highway",
+    "1.7 city, 2.5 highway"
+   ],
+   "correct": 0,
+   "image": ""
+  },
+  {
+   "text": "Max DC fast-charge rate?",
+   "answers": [
+    "50 kW",
+    "100 kW",
+    "150 kW",
+    "250 kW"
+   ],
+   "correct": 2,
+   "image": ""
+  },
+  {
+   "text": "Which DC charge connector does it use?",
+   "answers": [
+    "CCS1 only",
+    "CHAdeMO",
+    "NACS",
+    "Type 2"
+   ],
+   "correct": 2,
+   "image": ""
+  },
+  {
+   "text": "DC fast charge 10\u201380% time?",
+   "answers": [
+    "About 20 minutes",
+    "About 35 minutes",
+    "About 45 minutes",
+    "About 60 minutes"
+   ],
+   "correct": 1,
+   "image": ""
+  },
+  {
+   "text": "Level 2 charge 20\u201380% time (240V/30A)?",
+   "answers": [
+    "About 3 hours",
+    "About 4.5 hours",
+    "About 6.5 hours",
+    "About 8 hours"
+   ],
+   "correct": 2,
+   "image": ""
+  },
+  {
+   "text": "Which charging cord is included?",
+   "answers": [
+    "DC fast-charge cable only",
+    "Portable Level 1/Level 2 cord",
+    "None \u2014 sold separately",
+    "Wallbox home charger"
+   ],
+   "correct": 1,
+   "image": ""
+  },
+  {
+   "text": "What climate hardware is standard on every Eclipse Sportback?",
+   "answers": [
+    "PTC heater only",
+    "Heat pump only",
+    "PTC heater and heat pump",
+    "No heat pump available"
+   ],
+   "correct": 2,
+   "image": ""
+  },
+  {
+   "text": "Starting MSRP of the EV?",
+   "answers": [
+    "$44,998",
+    "$48,998",
+    "$52,098",
+    "$54,098"
+   ],
+   "correct": 1,
+   "image": ""
+  },
+  {
+   "text": "MSRP of the EV with Technology Package?",
+   "answers": [
+    "$48,998",
+    "$52,098",
+    "$54,098",
+    "$56,198"
+   ],
+   "correct": 2,
+   "image": ""
+  },
+  {
+   "text": "How much more is the Technology Package than the EV?",
+   "answers": [
+    "+$3,100",
+    "+$4,500",
+    "+$5,100",
+    "+$6,000"
+   ],
+   "correct": 2,
+   "image": ""
+  },
+  {
+   "text": "Federal EV rebate eligibility on the base EV?",
+   "answers": [
+    "Not eligible",
+    "Up to $2,500",
+    "Up to $5,000",
+    "Up to $7,500"
+   ],
+   "correct": 2,
+   "image": ""
+  },
+  {
+   "text": "Wheel size on the EV?",
+   "answers": [
+    "17-in alloys",
+    "18-in two-tone alloys",
+    "19-in black alloys",
+    "20-in two-tone alloys"
+   ],
+   "correct": 1,
+   "image": ""
+  },
+  {
+   "text": "Display Audio and digital driver display size?",
+   "answers": [
+    "9-in / 7-in",
+    "12.3-in / 12.3-in",
+    "14.3-in / 14.3-in",
+    "10.8-in / 12.3-in"
+   ],
+   "correct": 2,
+   "image": ""
+  },
+  {
+   "text": "How many airbags are standard?",
+   "answers": [
+    "6",
+    "8",
+    "10",
+    "11"
+   ],
+   "correct": 3,
+   "image": ""
+  },
+  {
+   "text": "Which driver-assist suite is standard?",
+   "answers": [
+    "MI-PILOT Assist with ACC Stop & Go",
+    "Super Cruise",
+    "Autopilot",
+    "Eyesight only"
+   ],
+   "correct": 0,
+   "image": ""
+  },
+  {
+   "text": "Speaker count on the base EV vs Tech Package?",
+   "answers": [
+    "4 / 8",
+    "6 / BOSE 10",
+    "8 / Yamaha 12",
+    "BOSE 10 on both"
+   ],
+   "correct": 1,
+   "image": ""
+  },
+  {
+   "text": "Which is NOT added by the Technology Package?",
+   "answers": [
+    "Panoramic fixed glass roof with e-dimming",
+    "Hands-free power liftgate",
+    "Head-Up Display",
+    "Black roof rails"
+   ],
+   "correct": 2,
+   "image": ""
+  },
+  {
+   "text": "What kind of roof does the Tech Package add?",
+   "answers": [
+    "Power panoramic sunroof",
+    "Panoramic fixed glass roof with e-dimming sunshade",
+    "Removable hardtop",
+    "No roof option"
+   ],
+   "correct": 1,
+   "image": ""
+  },
+  {
+   "text": "How many versions are in the Eclipse Sportback lineup?",
+   "answers": [
+    "One trim only",
+    "EV and EV with Technology Package",
+    "ES, SE, and GT",
+    "EV, PHEV, and Gas"
+   ],
+   "correct": 1,
+   "image": ""
+  }
+ ]
+}
