@@ -1,0 +1,337 @@
+{
+ "id": "zelda-ultimate-fan",
+ "updated": 0,
+ "title": "Legend of Zelda Ultimate Fan Quiz",
+ "questions": [
+  {
+   "text": "In Ocarina of Time, who summons Navi to be Link's fairy companion?",
+   "answers": [
+    "The Great Deku Tree",
+    "Saria",
+    "Kaepora Gaebora",
+    "Impa"
+   ],
+   "correct": 0,
+   "image": ""
+  },
+  {
+   "text": "In Ocarina of Time, Sheik is secretly which character in disguise?",
+   "answers": [
+    "Impa",
+    "Nabooru",
+    "Princess Zelda",
+    "Saria"
+   ],
+   "correct": 2,
+   "image": ""
+  },
+  {
+   "text": "How many years does the Master Sword seal Link away in Ocarina of Time before he awakens as an adult?",
+   "answers": [
+    "5 years",
+    "7 years",
+    "10 years",
+    "3 years"
+   ],
+   "correct": 1,
+   "image": ""
+  },
+  {
+   "text": "Majora's Mask's central time loop lasts how long before the Moon falls?",
+   "answers": [
+    "Three days",
+    "Seven days",
+    "One day",
+    "Five days"
+   ],
+   "correct": 0,
+   "image": ""
+  },
+  {
+   "text": "How does Link obtain the Fierce Deity's Mask in Majora's Mask?",
+   "answers": [
+    "Defeat Majora in a rematch",
+    "Complete the Anju and Kafei quest only",
+    "Buy it from the Curiosity Shop",
+    "Give all 20 non-transforming masks to the Moon Children"
+   ],
+   "correct": 3,
+   "image": ""
+  },
+  {
+   "text": "In The Wind Waker, pirate captain Tetra is later revealed to be\u2026",
+   "answers": [
+    "Aryll",
+    "Princess Zelda",
+    "Medli",
+    "Jabun"
+   ],
+   "correct": 1,
+   "image": ""
+  },
+  {
+   "text": "What is the true identity of the King of Red Lions in The Wind Waker?",
+   "answers": [
+    "Jabun",
+    "Valoo",
+    "Daphnes Nohansen Hyrule",
+    "Quill"
+   ],
+   "correct": 2,
+   "image": ""
+  },
+  {
+   "text": "In Twilight Princess, Midna is the true ruler of which people?",
+   "answers": [
+    "The Twili",
+    "The Sheikah",
+    "The Gerudo",
+    "The Kokiri"
+   ],
+   "correct": 0,
+   "image": ""
+  },
+  {
+   "text": "Who is the spirit that resides in the Goddess Sword / Master Sword in Skyward Sword?",
+   "answers": [
+    "Navi",
+    "Tatl",
+    "Ciela",
+    "Fi"
+   ],
+   "correct": 3,
+   "image": ""
+  },
+  {
+   "text": "In Skyward Sword, Demise vows that an incarnation of his hatred will forever pursue those who share\u2026",
+   "answers": [
+    "The blood of Din and the spirit of Farore",
+    "The blood of the goddess and the spirit of the hero",
+    "The Triforce of Power alone",
+    "The blood of the Zonai"
+   ],
+   "correct": 1,
+   "image": ""
+  },
+  {
+   "text": "Which Champion pilots Divine Beast Vah Ruta in Breath of the Wild?",
+   "answers": [
+    "Urbosa",
+    "Revali",
+    "Mipha",
+    "Daruk"
+   ],
+   "correct": 2,
+   "image": ""
+  },
+  {
+   "text": "What animal form does Divine Beast Vah Medoh take?",
+   "answers": [
+    "Eagle",
+    "Elephant",
+    "Camel",
+    "Salamander"
+   ],
+   "correct": 0,
+   "image": ""
+  },
+  {
+   "text": "On the Great Plateau in Breath of the Wild, the Old Man is revealed to be the spirit of\u2026",
+   "answers": [
+    "Ganon",
+    "King Rhoam",
+    "Rauru",
+    "Daruk"
+   ],
+   "correct": 1,
+   "image": ""
+  },
+  {
+   "text": "Which Tears of the Kingdom ability rewinds an object's movement through time?",
+   "answers": [
+    "Ultrahand",
+    "Ascend",
+    "Autobuild",
+    "Recall"
+   ],
+   "correct": 3,
+   "image": ""
+  },
+  {
+   "text": "In Tears of the Kingdom, Hyrule's first king Rauru belongs to which ancient people?",
+   "answers": [
+    "Zonai",
+    "Sheikah",
+    "Twili",
+    "Gerudo"
+   ],
+   "correct": 0,
+   "image": ""
+  },
+  {
+   "text": "In Echoes of Wisdom, who creates and lends Zelda the Tri Rod?",
+   "answers": [
+    "Impa",
+    "Navi",
+    "Tri",
+    "Fi"
+   ],
+   "correct": 2,
+   "image": ""
+  },
+  {
+   "text": "In the original NES Legend of Zelda, Princess Zelda splits the Triforce of Wisdom into how many fragments?",
+   "answers": [
+    "3",
+    "8",
+    "16",
+    "4"
+   ],
+   "correct": 1,
+   "image": ""
+  },
+  {
+   "text": "Who composed the original The Legend of Zelda overworld theme?",
+   "answers": [
+    "Koji Kondo",
+    "Nobuo Uematsu",
+    "Hirokazu Tanaka",
+    "Yoko Shimomura"
+   ],
+   "correct": 0,
+   "image": ""
+  },
+  {
+   "text": "According to Hyrule Historia, the owl Kaepora Gaebora in Ocarina of Time is which sage in another form?",
+   "answers": [
+    "Darunia",
+    "Impa",
+    "Saria",
+    "Rauru"
+   ],
+   "correct": 3,
+   "image": ""
+  },
+  {
+   "text": "What are the three pieces of the Triforce?",
+   "answers": [
+    "Strength, Speed, and Magic",
+    "Earth, Wind, and Fire",
+    "Power, Wisdom, and Courage",
+    "Light, Shadow, and Time"
+   ],
+   "correct": 2,
+   "image": ""
+  },
+  {
+   "text": "Ocarina of Time's lock-on targeting system is famously named after which N64 button?",
+   "answers": [
+    "A button",
+    "Z button",
+    "R button",
+    "C-Up button"
+   ],
+   "correct": 1,
+   "image": ""
+  },
+  {
+   "text": "Which fairy is Link's companion throughout Majora's Mask?",
+   "answers": [
+    "Tatl",
+    "Navi",
+    "Ciela",
+    "Tael"
+   ],
+   "correct": 0,
+   "image": ""
+  },
+  {
+   "text": "Which Golden Goddess is associated with Courage?",
+   "answers": [
+    "Din",
+    "Nayru",
+    "Hylia",
+    "Farore"
+   ],
+   "correct": 3,
+   "image": ""
+  },
+  {
+   "text": "In Skyward Sword, the Goddess Sword is tempered in Sacred Flames and blessed to become\u2026",
+   "answers": [
+    "The Four Sword",
+    "The Master Sword",
+    "The Biggoron Sword",
+    "The Goddess's Harp"
+   ],
+   "correct": 1,
+   "image": ""
+  },
+  {
+   "text": "Which classic Zelda enemy is known for eating Link's shield (and sometimes tunic)?",
+   "answers": [
+    "ReDead",
+    "Octorok",
+    "Like Like",
+    "Wallmaster"
+   ],
+   "correct": 2,
+   "image": ""
+  },
+  {
+   "text": "Which traveling merchant appears across many Zelda games, often with a huge backpack?",
+   "answers": [
+    "Beedle",
+    "Ravio",
+    "Tingle",
+    "Linebeck"
+   ],
+   "correct": 0,
+   "image": ""
+  },
+  {
+   "text": "Ocarina of Time and Majora's Mask both received enhanced remakes on which handheld?",
+   "answers": [
+    "Nintendo DS",
+    "Nintendo 3DS",
+    "Game Boy Advance",
+    "Nintendo Switch"
+   ],
+   "correct": 1,
+   "image": ""
+  },
+  {
+   "text": "In Tears of the Kingdom, Mineru is which relation to King Rauru?",
+   "answers": [
+    "His daughter",
+    "His wife",
+    "His mother",
+    "His older sister"
+   ],
+   "correct": 3,
+   "image": ""
+  },
+  {
+   "text": "In The Wind Waker, which two new sages must pray to restore the Master Sword's power to repel evil?",
+   "answers": [
+    "Saria and Ruto",
+    "Mipha and Sidon",
+    "Medli (Earth) and Makar (Wind)",
+    "Impa and Nabooru"
+   ],
+   "correct": 2,
+   "image": ""
+  },
+  {
+   "text": "Where does Link first meet and claim the horse Epona in Ocarina of Time?",
+   "answers": [
+    "Gerudo Valley",
+    "Lon Lon Ranch",
+    "Kokiri Forest",
+    "Lake Hylia"
+   ],
+   "correct": 1,
+   "image": ""
+  }
+ ]
+}
