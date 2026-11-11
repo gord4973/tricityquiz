@@ -75,6 +75,64 @@ BUILD_AND_PRICE = {
     "rvr-2026": "https://www.mitsubishi-motors.ca/en/buy/configure-your-mitsubishi/configurator?vehicle=vde9y7wnb1d9d8xdyjo67r&year=2026",
 }
 
+BUILD_MODEL_CODES = {
+    "outlander-phev-2026": {
+        "ES S-AWC": "GN0WXDMHZL3M-NA_C61",
+        "SE S-AWC": "GN0WXDXHZL3M-NA_U62",
+        "LE S-AWC": "GN0WXDXHZL3M-NA_F61",
+        "SEL S-AWC": "GN0WXDXHZL3M-NA_F62",
+        "GT S-AWC": "GN0WXDUHZL3M-NA_F63",
+        "GT PREMIUM S-AWC": "GN0WXDUHZL3M-NA_F64",
+        "GT NOIR S-AWC": "GN0WXDUHZL3M-NA_L61"
+    },
+    "outlander-2027": {
+        "ES S-AWC": "GM2WXTMCZL3M-NA_C71",
+        "SE S-AWC": "GM2WXTXCZL3M-NA_C72",
+        "LE S-AWC": "GM2WXTXCZL3M-NA_F73",
+        "SEL S-AWC": "GM2WXTXCZL3M-NA_F75",
+        "GT S-AWC": "GM2WXTUCZL3M-NA_F76",
+        "GT PREMIUM S-AWC": "GM2WXTUCZL3M-NA_F77",
+        "GT NOIR S-AWC": "GM2WXTUCZL3M-NA_L71"
+    },
+    "outlander-2026": {
+        "ES S-AWC": "GM2WXTMCZL3M-NA_C61",
+        "SE S-AWC": "GM2WXTXCZL3M-NA_C62",
+        "LE S-AWC": "GM2WXTXCZL3M-NA_F63",
+        "SEL S-AWC": "GM2WXTXCZL3M-NA_F65",
+        "GT S-AWC": "GM2WXTUCZL3M-NA_F66",
+        "GT PREMIUM S-AWC": "GM2WXTUCZL3M-NA_F67",
+        "NOIR S-AWC": "GM2WXTUCZL3M-NA_L61"
+    },
+    "eclipse-cross-2026": {
+        "ES S-AWC": "GK1WXTJUZL3M-NA_C61",
+        "SE S-AWC": "GK1WXTXUZL3M-NA_C62",
+        "NOIR S-AWC": "GK1WXTXUZL3M-NA_L61",
+        "GT S-AWC": "GK1WXTXUZL3M-NA_C64"
+    },
+    "eclipse-sportback-2027": {
+        "EV": "00000DEAC2LC-NA_F71",
+        "EV + Technology Package": "0000DEAC2LCP-NA_F72",
+        "EV Tech Pkg": "0000DEAC2LCP-NA_F72"
+    },
+    "rvr-2027": {
+        "ES FWD": "GA2WXTMHL3M-NA_C71",
+        "ES AWC": "GA2WXTMHZL3M-NA_C72",
+        "SE AWC": "GA5WXTXHZL3M-NA_C74",
+        "SEL AWC": "GA5WXTXHZL3M-NA_C75",
+        "NOIR AWC": "GA5WXTXHZL3M-NA_L71",
+        "GT AWC": "GA5WXTXHZL3M-NA_C76"
+    },
+    "rvr-2026": {
+        "ES FWD": "GA2WXTMHL3M-NA_C61",
+        "ES AWC": "GA2WXTMHZL3M-NA_C62",
+        "SE AWC": "GA5WXTXHZL3M-NA_C64",
+        "SEL AWC": "GA5WXTXHZL3M-NA_C65",
+        "NOIR AWC": "GA5WXTXHZL3M-NA_L61",
+        "GT AWC": "GA5WXTXHZL3M-NA_C66"
+    }
+}
+
+
 def inventory_trim(name, mid):
     if mid == "eclipse-sportback-2027":
         return "Technology Package" if "Tech" in name or "Technology" in name else "EV"
@@ -305,12 +363,15 @@ def build():
             display = t.get('headline_features') or t.get('adds_over_trim_below') or []
             # drop unresolved parentheticals that are research notes? keep verified text as written.
             name = t.get('full_name') or t.get('name')
+            codes = BUILD_MODEL_CODES.get(mid) or {}
+            build_code = codes.get(name) or codes.get(t.get('name')) or codes.get(t.get('full_name'))
             trims_out.append({
                 'id': slug(name),
                 'name': name,
                 'msrp': t['msrp'],
                 'drive': t.get('drivetrain'),
                 'inventoryTrim': inventory_trim(name, mid),
+                'buildModelCode': build_code,
                 'tags': tags_for(' | '.join(cumulative), t.get('drivetrain')),
                 'features': display,
             })

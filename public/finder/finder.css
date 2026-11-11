@@ -107,3 +107,9 @@ main{flex:1;width:min(720px,100%);margin:0 auto;padding:20px 16px 40px}
 @media(min-width:640px){
   .cta-row.primary{flex-direction:row}
 }
+
+.card-ctas{margin:16px 0 0}
+.card-ctas a{font-size:.95rem;text-align:center}
+@media(max-width:639px){
+  .card-ctas{flex-direction:column}
+}

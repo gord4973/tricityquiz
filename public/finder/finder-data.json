@@ -112,6 +112,7 @@
           "msrp": 46998,
           "drive": "S-AWC",
           "inventoryTrim": "ES",
+          "buildModelCode": "GN0WXDMHZL3M-NA_C61",
           "tags": [
             "safety",
             "tech",
@@ -139,6 +140,7 @@
           "msrp": 52598,
           "drive": "S-AWC",
           "inventoryTrim": "SE",
+          "buildModelCode": "GN0WXDXHZL3M-NA_U62",
           "tags": [
             "heated-wheel",
             "sunroof",
@@ -167,6 +169,7 @@
           "msrp": 54798,
           "drive": "S-AWC",
           "inventoryTrim": "LE",
+          "buildModelCode": "GN0WXDXHZL3M-NA_F61",
           "tags": [
             "heated-wheel",
             "sunroof",
@@ -192,6 +195,7 @@
           "msrp": 57598,
           "drive": "S-AWC",
           "inventoryTrim": "SEL",
+          "buildModelCode": "GN0WXDXHZL3M-NA_F62",
           "tags": [
             "heated-wheel",
             "heated-rear",
@@ -220,6 +224,7 @@
           "msrp": 60598,
           "drive": "S-AWC",
           "inventoryTrim": "GT",
+          "buildModelCode": "GN0WXDUHZL3M-NA_F63",
           "tags": [
             "heated-wheel",
             "heated-rear",
@@ -249,6 +254,7 @@
           "msrp": 61698,
           "drive": "S-AWC",
           "inventoryTrim": "GT PREMIUM",
+          "buildModelCode": "GN0WXDUHZL3M-NA_F64",
           "tags": [
             "heated-wheel",
             "heated-rear",
@@ -274,6 +280,7 @@
           "msrp": 63048,
           "drive": "S-AWC",
           "inventoryTrim": "GT NOIR",
+          "buildModelCode": "GN0WXDUHZL3M-NA_L61",
           "tags": [
             "heated-wheel",
             "heated-rear",
@@ -352,6 +359,7 @@
           "msrp": 36398,
           "drive": "S-AWC",
           "inventoryTrim": "ES",
+          "buildModelCode": "GM2WXTMCZL3M-NA_C61",
           "tags": [
             "heated-front",
             "audio",
@@ -377,6 +385,7 @@
           "msrp": 39098,
           "drive": "S-AWC",
           "inventoryTrim": "SE",
+          "buildModelCode": "GM2WXTXCZL3M-NA_C62",
           "tags": [
             "heated-front",
             "heated-wheel",
@@ -405,6 +414,7 @@
           "msrp": 42198,
           "drive": "S-AWC",
           "inventoryTrim": "LE",
+          "buildModelCode": "GM2WXTXCZL3M-NA_F63",
           "tags": [
             "heated-front",
             "heated-wheel",
@@ -433,6 +443,7 @@
           "msrp": 44898,
           "drive": "S-AWC",
           "inventoryTrim": "SEL",
+          "buildModelCode": "GM2WXTXCZL3M-NA_F65",
           "tags": [
             "heated-front",
             "heated-wheel",
@@ -464,6 +475,7 @@
           "msrp": 47398,
           "drive": "S-AWC",
           "inventoryTrim": "GT",
+          "buildModelCode": "GM2WXTUCZL3M-NA_F66",
           "tags": [
             "heated-front",
             "heated-wheel",
@@ -494,6 +506,7 @@
           "msrp": 48398,
           "drive": "S-AWC",
           "inventoryTrim": "GT PREMIUM",
+          "buildModelCode": "GM2WXTUCZL3M-NA_F67",
           "tags": [
             "heated-front",
             "heated-wheel",
@@ -519,6 +532,7 @@
           "msrp": 49748,
           "drive": "S-AWC",
           "inventoryTrim": "NOIR",
+          "buildModelCode": "GM2WXTUCZL3M-NA_L61",
           "tags": [
             "heated-front",
             "heated-wheel",
@@ -600,6 +614,7 @@
           "msrp": 37398,
           "drive": "S-AWC",
           "inventoryTrim": "ES",
+          "buildModelCode": "GM2WXTMCZL3M-NA_C71",
           "tags": [
             "heated-front",
             "safety",
@@ -636,6 +651,7 @@
           "msrp": 40148,
           "drive": "S-AWC",
           "inventoryTrim": "SE",
+          "buildModelCode": "GM2WXTXCZL3M-NA_C72",
           "tags": [
             "heated-front",
             "heated-wheel",
@@ -665,6 +681,7 @@
           "msrp": 43248,
           "drive": "S-AWC",
           "inventoryTrim": "LE",
+          "buildModelCode": "GM2WXTXCZL3M-NA_F73",
           "tags": [
             "heated-front",
             "heated-wheel",
@@ -693,6 +710,7 @@
           "msrp": 45948,
           "drive": "S-AWC",
           "inventoryTrim": "SEL",
+          "buildModelCode": "GM2WXTXCZL3M-NA_F75",
           "tags": [
             "heated-front",
             "heated-wheel",
@@ -724,6 +742,7 @@
           "msrp": 48648,
           "drive": "S-AWC",
           "inventoryTrim": "GT",
+          "buildModelCode": "GM2WXTUCZL3M-NA_F76",
           "tags": [
             "heated-front",
             "heated-wheel",
@@ -759,6 +778,7 @@
           "msrp": 49648,
           "drive": "S-AWC",
           "inventoryTrim": "GT PREMIUM",
+          "buildModelCode": "GM2WXTUCZL3M-NA_F77",
           "tags": [
             "heated-front",
             "heated-wheel",
@@ -784,6 +804,7 @@
           "msrp": 50998,
           "drive": "S-AWC",
           "inventoryTrim": "GT NOIR",
+          "buildModelCode": "GM2WXTUCZL3M-NA_L71",
           "tags": [
             "heated-front",
             "heated-wheel",
@@ -870,6 +891,7 @@
           "msrp": 29798,
           "drive": "S-AWC",
           "inventoryTrim": "ES",
+          "buildModelCode": "GK1WXTJUZL3M-NA_C61",
           "tags": [
             "heated-front",
             "safety",
@@ -900,6 +922,7 @@
           "msrp": 33298,
           "drive": "S-AWC",
           "inventoryTrim": "SE",
+          "buildModelCode": "GK1WXTXUZL3M-NA_C62",
           "tags": [
             "heated-front",
             "heated-wheel",
@@ -930,6 +953,7 @@
           "msrp": 36898,
           "drive": "S-AWC",
           "inventoryTrim": "NOIR",
+          "buildModelCode": "GK1WXTXUZL3M-NA_L61",
           "tags": [
             "heated-front",
             "heated-wheel",
@@ -961,6 +985,7 @@
           "msrp": 38898,
           "drive": "S-AWC",
           "inventoryTrim": "GT",
+          "buildModelCode": "GK1WXTXUZL3M-NA_C64",
           "tags": [
             "heated-front",
             "heated-wheel",
@@ -1039,6 +1064,7 @@
           "msrp": 48998,
           "drive": "FWD",
           "inventoryTrim": "EV",
+          "buildModelCode": "00000DEAC2LC-NA_F71",
           "tags": [
             "heated-front",
             "heated-wheel",
@@ -1067,6 +1093,7 @@
           "msrp": 54098,
           "drive": "FWD",
           "inventoryTrim": "Technology Package",
+          "buildModelCode": "0000DEAC2LCP-NA_F72",
           "tags": [
             "heated-front",
             "heated-wheel",
@@ -1138,6 +1165,7 @@
           "msrp": 24998,
           "drive": "FWD",
           "inventoryTrim": "ES FWD",
+          "buildModelCode": "GA2WXTMHL3M-NA_C61",
           "tags": [
             "heated-front"
           ],
@@ -1161,6 +1189,7 @@
           "msrp": 26998,
           "drive": "AWC",
           "inventoryTrim": "ES AWC",
+          "buildModelCode": "GA2WXTMHZL3M-NA_C62",
           "tags": [
             "heated-front",
             "awd"
@@ -1175,6 +1204,7 @@
           "msrp": 28998,
           "drive": "AWC",
           "inventoryTrim": "SE AWC",
+          "buildModelCode": "GA5WXTXHZL3M-NA_C64",
           "tags": [
             "heated-front",
             "safety",
@@ -1198,6 +1228,7 @@
           "msrp": 31498,
           "drive": "AWC",
           "inventoryTrim": "SEL AWC",
+          "buildModelCode": "GA5WXTXHZL3M-NA_C65",
           "tags": [
             "heated-front",
             "heated-wheel",
@@ -1221,6 +1252,7 @@
           "msrp": 32998,
           "drive": "AWC",
           "inventoryTrim": "NOIR AWC",
+          "buildModelCode": "GA5WXTXHZL3M-NA_L61",
           "tags": [
             "heated-front",
             "heated-wheel",
@@ -1250,6 +1282,7 @@
           "msrp": 35998,
           "drive": "AWC",
           "inventoryTrim": "GT AWC",
+          "buildModelCode": "GA5WXTXHZL3M-NA_C66",
           "tags": [
             "heated-front",
             "heated-wheel",
@@ -1328,6 +1361,7 @@
           "msrp": 25278,
           "drive": "FWD",
           "inventoryTrim": "ES FWD",
+          "buildModelCode": "GA2WXTMHL3M-NA_C71",
           "tags": [
             "heated-front"
           ],
@@ -1356,6 +1390,7 @@
           "msrp": 27278,
           "drive": "AWC",
           "inventoryTrim": "ES AWC",
+          "buildModelCode": "GA2WXTMHZL3M-NA_C72",
           "tags": [
             "heated-front",
             "awd"
@@ -1370,6 +1405,7 @@
           "msrp": 29778,
           "drive": "AWC",
           "inventoryTrim": "SE AWC",
+          "buildModelCode": "GA5WXTXHZL3M-NA_C74",
           "tags": [
             "heated-front",
             "heated-wheel",
@@ -1397,6 +1433,7 @@
           "msrp": 31998,
           "drive": "AWC",
           "inventoryTrim": "SEL AWC",
+          "buildModelCode": "GA5WXTXHZL3M-NA_C75",
           "tags": [
             "heated-front",
             "heated-wheel",
@@ -1418,6 +1455,7 @@
           "msrp": 33498,
           "drive": "AWC",
           "inventoryTrim": "NOIR AWC",
+          "buildModelCode": "GA5WXTXHZL3M-NA_L71",
           "tags": [
             "heated-front",
             "heated-wheel",
@@ -1450,6 +1488,7 @@
           "msrp": 35958,
           "drive": "AWC",
           "inventoryTrim": "GT AWC",
+          "buildModelCode": "GA5WXTXHZL3M-NA_C76",
           "tags": [
             "heated-front",
             "heated-wheel",

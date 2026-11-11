@@ -157,9 +157,15 @@ function inventoryUrl(model, trim){
   }
   return u.toString();
 }
-function buildAndPriceUrl(model){
-  return model.buildAndPriceUrl || ((DATA.links && DATA.links.buildAndPrice && DATA.links.buildAndPrice.base) || 'https://www.mitsubishi-motors.ca/en/buy/configure-your-mitsubishi');
+function buildAndPriceUrl(model, trim){
+  const base = model.buildAndPriceUrl || ((DATA.links && DATA.links.buildAndPrice && DATA.links.buildAndPrice.base) || 'https://www.mitsubishi-motors.ca/en/buy/configure-your-mitsubishi');
+  const rec = trim && (trim.buildModelCode || (trim.trim && trim.trim.buildModelCode));
+  if (!rec) return base;
+  const u = new URL(base, 'https://www.mitsubishi-motors.ca');
+  u.searchParams.set('model', rec);
+  return u.toString();
 }
+const TRIM_LABELS = ['Best Price Option', 'Premium Option', 'Top-Tier Loaded Option'];
 function $(id){ return document.getElementById(id); }
 
 function render(){
@@ -220,17 +226,9 @@ function render(){
     const d = DATA.dealer;
     app.innerHTML = `<section class="screen">
       <p class="eyebrow">Your ${esc(m.yearLabel)} ${esc(m.name)} trims</p>
-      <h2>Your top ${ranked.length===2?'two':ranked.length===1?'':'three '}trim level${ranked.length===1?'':'s'}.</h2>
-      <p class="lede">Approximate weekly payments and the difference versus the lowest of these results.</p>
+      <h2>Your recommended trim level${ranked.length===1?'':'s'}.</h2>
+      <p class="lede">Shown from lowest to highest price, with approximate weekly payments and the difference versus the lowest (Best Price Option).</p>
       <div class="cards">${ranked.map((t,i)=>trimCard(m,t,i,low)).join('')}</div>
-      <div class="cta-row primary">
-        <a class="red" href="${esc(inventoryUrl(m))}" target="_blank" rel="noopener">Check Out Our Inventory</a>
-        <a class="dark" href="${esc(buildAndPriceUrl(m))}" target="_blank" rel="noopener">Build Your Own</a>
-      </div>
-      ${ranked.slice(0,2).map(t=>{
-        const label = (t.trim && t.trim.name) || t.name || 'this trim';
-        return `<a class="trim-stock" href="${esc(inventoryUrl(m, t.trim || t))}" target="_blank" rel="noopener">See ${esc(label)} in stock</a>`;
-      }).join('')}
       <div class="cta-row secondary">
         <a class="outline" href="${esc(d.testDriveUrl)}" target="_blank" rel="noopener">Book a test drive</a>
         <a class="outline" href="${esc(d.phoneHref)}">Call ${esc(d.phone)}</a>
@@ -275,13 +273,18 @@ function modelCard(p, label){
 }
 function trimCard(m,t,i,low){
   const extra = t.weekly - low;
-  const extraTxt = extra<=0.5 ? 'Lowest of these three' : `+${MONEY2.format(extra)} / week vs the lowest of these three`;
+  const label = TRIM_LABELS[i] || TRIM_LABELS[TRIM_LABELS.length-1];
+  const extraTxt = extra<=0.5 ? 'Lowest weekly payment of these options' : `+${MONEY2.format(extra)} / week vs the lowest (Best Price Option)`;
   return `<article class="card">
-    <span class="rank">#${i+1}</span>
+    <span class="rank">${esc(label)}</span>
     <h3>${esc(t.trim.name)}</h3>
     <p class="price">${MONEY.format(t.trim.msrp)} MSRP · approx. ${MONEY2.format(t.weekly)} / week</p>
     <p class="delta">${extraTxt}</p>
     <ul class="features">${t.trim.features.map(h=>`<li>${esc(h)}</li>`).join('')}</ul>
+    <div class="cta-row card-ctas">
+      <a class="red" href="${esc(inventoryUrl(m, t.trim))}" target="_blank" rel="noopener">Check Out Our Inventory</a>
+      <a class="dark" href="${esc(buildAndPriceUrl(m, t.trim))}" target="_blank" rel="noopener">Build Your Own</a>
+    </div>
   </article>`;
 }
 function setProgress(p){ $('progressBar').style.width = Math.round(Math.min(1,Math.max(0,p))*100)+'%'; }
@@ -387,8 +390,9 @@ function scoreTrims(){
     }
     return { trim:t, score:s, weekly: weeklyFor(m,t) };
   }).sort((a,b)=> b.score-a.score || a.trim.msrp-b.trim.msrp);
-  // Always return 3 if possible, or all if the model has fewer (Sportback has 2)
-  return scored.slice(0, Math.min(3, scored.length));
+  // Keep the top matches, then show them lowest price to highest.
+  const top = scored.slice(0, Math.min(3, scored.length));
+  return top.sort((a,b)=> a.trim.msrp-b.trim.msrp || a.trim.name.localeCompare(b.trim.name));
 }
 
 function goBack(){
