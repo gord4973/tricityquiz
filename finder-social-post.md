@@ -6,7 +6,7 @@ Public link: https://tricityquiz.onrender.com/finder
 
 Ready to meet your next Mitsubishi? 🚗
 
-Take our quick **Find Your Perfect Mitsubishi** quiz and we’ll match your family to a first and second choice from the new 2026 & 2027 models we have in stock at Tricity Mitsubishi — then help you narrow it to the best trim, with estimated weekly payments.
+Just answer a few quick questions and we’ll show you the best new Mitsubishi model to meet your family’s needs, then we’ll help you determine the right trim level. When we’re done, we’ll even show you what we have in stock, or let you build your perfect vehicle!
 
 No timer. No score. Just answers that fit *your* life.
 
@@ -20,7 +20,7 @@ Book a test drive in Port Coquitlam when you’re ready. We’re here 7 days a w
 
 What’s the best new Mitsubishi for your family? 🔑
 
-Take the 2-minute finder: get a first and second choice, then a recommended trim with estimated weekly payments.
+Take the 2-minute finder: we’ll match a Mitsubishi to your family, help pick a trim, then show you what’s in stock — or let you build your own.
 
 https://tricityquiz.onrender.com/finder
 

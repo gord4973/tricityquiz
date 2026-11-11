@@ -143,6 +143,23 @@ function familyOf(modelOrId){
   const m = typeof modelOrId === 'string' ? modelById(modelOrId) : modelOrId;
   return (m && m.family) || (m && m.id) || modelOrId;
 }
+function inventoryUrl(model, trim){
+  const L = (DATA.links && DATA.links.inventory) || {};
+  const base = L.base || 'https://www.tricitymits.com/vehicles/new/';
+  const u = new URL(base, 'https://www.tricitymits.com');
+  Object.entries(L.params || {}).forEach(([k,v])=>{ if(v!=null && v!=='') u.searchParams.set(k, v); });
+  const md = model.inventoryModel || model.name;
+  if (md) u.searchParams.set(L.modelParam || 'md', md);
+  if (model.year) u.searchParams.set(L.yearParam || 'yr', String(model.year));
+  if (trim){
+    const tr = trim.inventoryTrim || (trim.trim && trim.trim.inventoryTrim) || (trim.name) || (trim.trim && trim.trim.name);
+    if (tr) u.searchParams.set(L.trimParam || 'tr', tr);
+  }
+  return u.toString();
+}
+function buildAndPriceUrl(model){
+  return model.buildAndPriceUrl || ((DATA.links && DATA.links.buildAndPrice && DATA.links.buildAndPrice.base) || 'https://www.mitsubishi-motors.ca/en/buy/configure-your-mitsubishi');
+}
 function $(id){ return document.getElementById(id); }
 
 function render(){
@@ -206,9 +223,16 @@ function render(){
       <h2>Your top ${ranked.length===2?'two':ranked.length===1?'':'three '}trim level${ranked.length===1?'':'s'}.</h2>
       <p class="lede">Approximate weekly payments and the difference versus the lowest of these results.</p>
       <div class="cards">${ranked.map((t,i)=>trimCard(m,t,i,low)).join('')}</div>
-      <div class="cta-row">
-        <a class="red" href="${esc(d.testDriveUrl)}" target="_blank" rel="noopener">Book a test drive</a>
-        <a class="dark" href="${esc(d.inventoryUrl)}" target="_blank" rel="noopener">View inventory</a>
+      <div class="cta-row primary">
+        <a class="red" href="${esc(inventoryUrl(m))}" target="_blank" rel="noopener">Check Out Our Inventory</a>
+        <a class="dark" href="${esc(buildAndPriceUrl(m))}" target="_blank" rel="noopener">Build Your Own</a>
+      </div>
+      ${ranked.slice(0,2).map(t=>{
+        const label = (t.trim && t.trim.name) || t.name || 'this trim';
+        return `<a class="trim-stock" href="${esc(inventoryUrl(m, t.trim || t))}" target="_blank" rel="noopener">See ${esc(label)} in stock</a>`;
+      }).join('')}
+      <div class="cta-row secondary">
+        <a class="outline" href="${esc(d.testDriveUrl)}" target="_blank" rel="noopener">Book a test drive</a>
         <a class="outline" href="${esc(d.phoneHref)}">Call ${esc(d.phone)}</a>
       </div>
       <p><strong>Tricity Mitsubishi</strong><br>${esc(d.address)}<br><a href="${esc(d.website)}" target="_blank" rel="noopener">tricitymits.com</a></p>
@@ -381,7 +405,7 @@ function showIntro(){
   $('app').innerHTML = `<section class="screen" id="intro">
     <p class="eyebrow">Port Coquitlam, BC</p>
     <h1>Find the best Mitsubishi for your family.</h1>
-    <p class="lede">A few friendly questions. No timer, no score, no sign-in — just a first and second choice from the current Mitsubishi models we have in stock, then help picking the right trim.</p>
+    <p class="lede">Just answer a few quick questions and we'll show you the best new Mitsubishi model to meet your family's needs, then we'll help you determine the right trim level. When we're done, we'll even show you what we have in stock, or let you build your perfect vehicle!</p>
     <button type="button" class="cta" id="startBtn" disabled>Loading…</button>
     <p class="fine">Takes about two minutes. Payments shown later are approximate estimates only, before taxes, using current BC finance offers (November 3–30, 2026).</p>
   </section>`;

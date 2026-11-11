@@ -38,6 +38,50 @@ STOCK = {
 }
 STOCK_COUNTS = '2026 Eclipse Cross (31), 2026 Outlander (40), 2026 Outlander PHEV (59), 2026 RVR (13), 2027 Eclipse Sportback EV (3), 2027 Outlander (7), 2027 RVR (21)'
 
+# Confirmed on Tricity Convertus inventory links: /vehicles/new/?view=grid&sc=new&md=Outlander (etc.).
+# yr and tr are Convertus VMS filter params (API uses yr, mk, md, tr, sc). Year/trim could not be
+# live-clicked because tricitymits.com is behind Cloudflare.
+LINKS = {
+    "inventory": {
+        "base": "https://www.tricitymits.com/vehicles/new/",
+        "modelParam": "md",
+        "yearParam": "yr",
+        "trimParam": "tr",
+        "params": {"view": "grid", "sc": "new", "mk": "Mitsubishi"},
+        "note": "Convertus inventory SRP. Path /vehicles/new/ plus view=grid&sc=new&md={model} is confirmed on Tricity pages (md values: Outlander, Outlander PHEV, Eclipse Cross, RVR). mk, yr and tr match the Convertus VMS filter API. Trim-level filtering could not be live-verified (Cloudflare). Use the model+year URL for the main button; optional per-trim links add tr=."
+    },
+    "buildAndPrice": {
+        "provider": "mitsubishi-motors.ca",
+        "base": "https://www.mitsubishi-motors.ca/en/buy/configure-your-mitsubishi/configurator",
+        "note": "No model-specific Build & Price deep links were found on tricitymits.com. Official Mitsubishi Canada configurator URLs (vehicle + year) are used instead. All seven were fetched as HTTP 200 on 2026-11-11."
+    }
+}
+INVENTORY_MODEL = {
+    "outlander-2026": "Outlander",
+    "outlander-2027": "Outlander",
+    "outlander-phev-2026": "Outlander PHEV",
+    "eclipse-cross-2026": "Eclipse Cross",
+    "eclipse-sportback-2027": "Eclipse Sportback",
+    "rvr-2026": "RVR",
+    "rvr-2027": "RVR",
+}
+BUILD_AND_PRICE = {
+    "eclipse-sportback-2027": "https://www.mitsubishi-motors.ca/en/buy/configure-your-mitsubishi/configurator?vehicle=60kewf344deo3rsmnuok7j&year=2027",
+    "outlander-phev-2026": "https://www.mitsubishi-motors.ca/en/buy/configure-your-mitsubishi/configurator?vehicle=xoiookxoaw0tizqht2jf3z&year=2026",
+    "outlander-2027": "https://www.mitsubishi-motors.ca/en/buy/configure-your-mitsubishi/configurator?vehicle=bjp0e8elcw88ozs2ddv17l&year=2027",
+    "outlander-2026": "https://www.mitsubishi-motors.ca/en/buy/configure-your-mitsubishi/configurator?vehicle=bjp0e8elcw88ozs2ddv17l&year=2026",
+    "eclipse-cross-2026": "https://www.mitsubishi-motors.ca/en/buy/configure-your-mitsubishi/configurator?vehicle=ohiwuwrgvyma9ez12a1eq&year=2026",
+    "rvr-2027": "https://www.mitsubishi-motors.ca/en/buy/configure-your-mitsubishi/configurator?vehicle=vde9y7wnb1d9d8xdyjo67r&year=2027",
+    "rvr-2026": "https://www.mitsubishi-motors.ca/en/buy/configure-your-mitsubishi/configurator?vehicle=vde9y7wnb1d9d8xdyjo67r&year=2026",
+}
+
+def inventory_trim(name, mid):
+    if mid == "eclipse-sportback-2027":
+        return "Technology Package" if "Tech" in name or "Technology" in name else "EV"
+    # Keep RVR FWD vs AWC; drop S-AWC suffix used on Outlander / Eclipse Cross / PHEV official names
+    return re.sub(r"\s+S-AWC$", "", name)
+
+
 TAGLINES = {
     'rvr-2026': 'Compact 5-seat SUV — the lowest starting MSRP in this lineup.',
     'rvr-2027': 'The newer RVR, still a compact 5-seater.',
@@ -266,6 +310,7 @@ def build():
                 'name': name,
                 'msrp': t['msrp'],
                 'drive': t.get('drivetrain'),
+                'inventoryTrim': inventory_trim(name, mid),
                 'tags': tags_for(' | '.join(cumulative), t.get('drivetrain')),
                 'features': display,
             })
@@ -303,6 +348,8 @@ def build():
             'startingMsrp': starting,
             'image': IMAGES[mid],
             'source': source_url(m.get('sources')),
+            'inventoryModel': INVENTORY_MODEL[mid],
+            'buildAndPriceUrl': BUILD_AND_PRICE[mid],
             'highlights': highlights(mid, m, hs, starting, first_name),
             'whyHints': why_hints(mid, m, seats, pt, drive_kind, hs),
             'finance': model_fin,
@@ -353,6 +400,7 @@ def build():
             'inventoryUrl': 'https://www.tricitymits.com/mitsubishi-inventory/',
             'testDriveUrl': 'https://www.tricitymits.com/',
         },
+        'links': LINKS,
         'inventoryNote': (
             'Mits research files do not include a current Tricity new-vehicle stock list by trim. '
             'tricitymits.com inventory pages were blocked by the dealership site’s bot protection. '

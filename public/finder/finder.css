@@ -96,3 +96,14 @@ main{flex:1;width:min(720px,100%);margin:0 auto;padding:20px 16px 40px}
   .cta-row{flex-direction:row}
   .cta-row a{flex:1}
 }
+
+.cta-row.primary a{font-size:1.05rem}
+.trim-stock{
+  display:block;text-align:center;font-weight:700;color:var(--red);
+  text-decoration:none;padding:8px;min-height:44px;
+}
+.trim-stock:hover{text-decoration:underline}
+.cta-row.secondary a{min-height:48px;font-weight:700}
+@media(min-width:640px){
+  .cta-row.primary{flex-direction:row}
+}
