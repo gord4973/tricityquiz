@@ -55,7 +55,8 @@
       "provider": "mitsubishi-motors.ca",
       "base": "https://www.mitsubishi-motors.ca/en/buy/configure-your-mitsubishi/configurator",
       "note": "No model-specific Build & Price deep links were found on tricitymits.com. Official Mitsubishi Canada configurator URLs (vehicle + year) are used instead. All seven were fetched as HTTP 200 on 2026-11-11."
-    }
+    },
+    "fuelSavingsCalculator": "https://www.tricitymits.com/outlander-phev-fuel-savings-calculator/"
   },
   "inventoryNote": "Mits research files do not include a current Tricity new-vehicle stock list by trim. tricitymits.com inventory pages were blocked by the dealership site’s bot protection. In-stock flags below are based on AutoTrader listings for Tricity Mitsubishi (dealer id 47941112) on November 11, 2026, which showed new examples of: 2026 Eclipse Cross (31), 2026 Outlander (40), 2026 Outlander PHEV (59), 2026 RVR (13), 2027 Eclipse Sportback EV (3), 2027 Outlander (7), 2027 RVR (21). Set inStock to false on a model in this file to hide it from the finder. Not every official trim is necessarily on the lot at this moment.",
   "models": [

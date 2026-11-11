@@ -55,6 +55,8 @@ LINKS = {
         "base": "https://www.mitsubishi-motors.ca/en/buy/configure-your-mitsubishi/configurator",
         "note": "No model-specific Build & Price deep links were found on tricitymits.com. Official Mitsubishi Canada configurator URLs (vehicle + year) are used instead. All seven were fetched as HTTP 200 on 2026-11-11."
     }
+,
+    "fuelSavingsCalculator": "https://www.tricitymits.com/outlander-phev-fuel-savings-calculator/"
 }
 INVENTORY_MODEL = {
     "outlander-2026": "Outlander",

@@ -166,6 +166,13 @@ function buildAndPriceUrl(model, trim){
   return u.toString();
 }
 const TRIM_LABELS = ['Best Price Option', 'Premium Option', 'Top-Tier Loaded Option'];
+function isPhev(m){
+  return !!(m && (m.powertrain==='phev' || m.family==='outlander-phev' || String(m.id||'').startsWith('outlander-phev')));
+}
+function fuelSavingsCalculatorUrl(){
+  return (DATA.links && DATA.links.fuelSavingsCalculator) || '';
+}
+
 function $(id){ return document.getElementById(id); }
 
 function render(){
@@ -229,6 +236,9 @@ function render(){
       <h2>Your recommended trim level${ranked.length===1?'':'s'}.</h2>
       <p class="lede">Shown from lowest to highest price, with approximate weekly payments and the difference versus the lowest (Best Price Option).</p>
       <div class="cards">${ranked.map((t,i)=>trimCard(m,t,i,low)).join('')}</div>
+      ${isPhev(m) && fuelSavingsCalculatorUrl()?`<div class="cta-row primary">
+        <a class="red" href="${esc(fuelSavingsCalculatorUrl())}" target="_blank" rel="noopener">PHEV Fuel Savings Calculator</a>
+      </div>`:''}
       <div class="cta-row secondary">
         <a class="outline" href="${esc(d.testDriveUrl)}" target="_blank" rel="noopener">Book a test drive</a>
         <a class="outline" href="${esc(d.phoneHref)}">Call ${esc(d.phone)}</a>
@@ -260,11 +270,13 @@ function paymentDisclaimer(m){
 function modelCard(p, label){
   const m = p.model;
   const w = weeklyFor(m);
+  const phev = isPhev(m);
   return `<article class="card">
     <span class="rank">${esc(label)}</span>
     <img src="${esc(m.image)}" alt="${esc(m.yearLabel)} Mitsubishi ${esc(m.name)}">
     <h3>${esc(m.yearLabel)} ${esc(m.name)}</h3>
-    <p class="price">From ${MONEY.format(m.startingMsrp)} MSRP · approx. ${MONEY2.format(w)} / week</p>
+    <p class="price">From ${MONEY.format(m.startingMsrp)} MSRP · approx. ${MONEY2.format(w)} / week${phev?'*':''}</p>
+    ${phev?`<p class="phev-note">* Fuel savings from a PHEV vs traditional gas vehicles may significantly reduce your overall monthly cost.</p>`:''}
     <p class="why">${esc(p.why)}</p>
     <ul class="features">${m.highlights.map(h=>`<li>${esc(h)}</li>`).join('')}</ul>
     ${m.note?`<p class="fine">${esc(m.note)}</p>`:''}
