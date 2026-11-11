@@ -117,13 +117,31 @@ function weeklyPayment(principal, aprPercent, termMonths, ppy){
   if (!r) return principal / n;
   return principal * r / (1 - Math.pow(1+r, -n));
 }
+function availableModels(){
+  return (DATA.models || []).filter(m => m.inStock !== false);
+}
+function docFee(model){
+  const f = DATA.finance || {};
+  const mf = model.finance || {};
+  return (mf.docFee != null ? mf.docFee : (f.docFee || 0));
+}
+function feesFor(model){
+  const mf = model.finance || {};
+  return (mf.freightPdi || 0) + (mf.acCharge || 0) + (mf.tireDuty || 0) + (mf.ehf || 0) + docFee(model);
+}
 function amountFor(model, trim){
-  const freight = (DATA.finance.freightPdiByModel || {})[model.id] || 0;
-  return (trim?trim.msrp:model.startingMsrp) + freight + (DATA.finance.downPayment? -DATA.finance.downPayment:0);
+  const f = DATA.finance || {};
+  const msrp = trim ? trim.msrp : model.startingMsrp;
+  return msrp + feesFor(model) - (f.downPayment || 0);
 }
 function weeklyFor(model, trim){
-  const f = DATA.finance;
-  return weeklyPayment(amountFor(model, trim), f.aprPercent, f.termMonths, f.paymentsPerYear);
+  const f = DATA.finance || {};
+  const mf = model.finance || {};
+  return weeklyPayment(amountFor(model, trim), mf.aprPercent, mf.termMonths, f.paymentsPerYear || 52);
+}
+function familyOf(modelOrId){
+  const m = typeof modelOrId === 'string' ? modelById(modelOrId) : modelOrId;
+  return (m && m.family) || (m && m.id) || modelOrId;
 }
 function $(id){ return document.getElementById(id); }
 
@@ -185,8 +203,8 @@ function render(){
     const d = DATA.dealer;
     app.innerHTML = `<section class="screen">
       <p class="eyebrow">Your ${esc(m.yearLabel)} ${esc(m.name)} trims</p>
-      <h2>Your top three trim levels.</h2>
-      <p class="lede">Approximate weekly payments and the difference versus the lowest of these three.</p>
+      <h2>Your top ${ranked.length===2?'two':ranked.length===1?'':'three '}trim level${ranked.length===1?'':'s'}.</h2>
+      <p class="lede">Approximate weekly payments and the difference versus the lowest of these results.</p>
       <div class="cards">${ranked.map((t,i)=>trimCard(m,t,i,low)).join('')}</div>
       <div class="cta-row">
         <a class="red" href="${esc(d.testDriveUrl)}" target="_blank" rel="noopener">Book a test drive</a>
@@ -195,15 +213,27 @@ function render(){
       </div>
       <p><strong>Tricity Mitsubishi</strong><br>${esc(d.address)}<br><a href="${esc(d.website)}" target="_blank" rel="noopener">tricitymits.com</a></p>
       <div class="disclaimer">
-        <p><strong>Payment estimates only.</strong> Figures use official MSRP${freightNote()} at ${DATA.finance.aprPercent}% APR, ${DATA.finance.termMonths} months, $${DATA.finance.downPayment} down, ${DATA.finance.paymentsPerYear} weekly payments per year. On approved credit (OAC). Taxes, freight${DATA.finance.freightPdiByModel && Object.values(DATA.finance.freightPdiByModel).some(v=>v>0)?' (if not already included)':''}, PDI, documentation, licensing, insurance and other dealer fees are extra unless noted. This is not an offer to finance or a guarantee of price, rate, payment or inventory. Dealer may sell for less. Programs and stock change — confirm current details with Tricity Mitsubishi.</p>
+        ${paymentDisclaimer(m)}
       </div>
     </section>`;
   }
 }
-function freightNote(){
-  const f = DATA.finance.freightPdiByModel || {};
-  const used = Object.values(f).some(v=>v>0);
-  return used ? ' plus the freight/PDI amount set in the finder config' : '';
+function moneyPlain(n){
+  return Number(n).toLocaleString('en-CA', { minimumFractionDigits: Number.isInteger(n)?0:2, maximumFractionDigits: 2 });
+}
+function paymentDisclaimer(m){
+  const f = DATA.finance || {};
+  const mf = m.finance || {};
+  const parts = [
+    `MSRP + freight/PDI ($${moneyPlain(mf.freightPdi||0)})`,
+    `A/C charge ($${moneyPlain(mf.acCharge||0)})`,
+    `tire duty ($${moneyPlain(mf.tireDuty||0)})`,
+    `EHF ($${moneyPlain(mf.ehf||0)})`,
+    `documentation fee ($${moneyPlain(docFee(m))})`
+  ];
+  const loyalty = mf.loyaltyNote ? ' '+mf.loyaltyNote : '';
+  const window = f.offerWindowLabel || 'November 3–30, 2026';
+  return `<p><strong>Payment estimates only (approx.).</strong> Figures use ${parts.join(' + ')} at ${mf.aprPercent}% APR, ${mf.termMonths} months, $${f.downPayment||0} down, ${f.paymentsPerYear||52} weekly payments per year, before taxes.${loyalty} On approved credit (OAC). BC finance offers used here are valid ${window} and are subject to change. Taxes, licensing, insurance, registration and other charges are extra unless noted. Employee price adjustments are not included. This is not an offer to finance or a guarantee of price, rate, payment or inventory. Dealer may sell for less. Programs and stock change — confirm current details with Tricity Mitsubishi. Warranty terms and conditions apply.</p>`;
 }
 function modelCard(p, label){
   const m = p.model;
@@ -212,7 +242,7 @@ function modelCard(p, label){
     <span class="rank">${esc(label)}</span>
     <img src="${esc(m.image)}" alt="${esc(m.yearLabel)} Mitsubishi ${esc(m.name)}">
     <h3>${esc(m.yearLabel)} ${esc(m.name)}</h3>
-    <p class="price">From ${MONEY.format(m.startingMsrp)} MSRP · about ${MONEY2.format(w)} / week</p>
+    <p class="price">From ${MONEY.format(m.startingMsrp)} MSRP · approx. ${MONEY2.format(w)} / week</p>
     <p class="why">${esc(p.why)}</p>
     <ul class="features">${m.highlights.map(h=>`<li>${esc(h)}</li>`).join('')}</ul>
     ${m.note?`<p class="fine">${esc(m.note)}</p>`:''}
@@ -225,14 +255,14 @@ function trimCard(m,t,i,low){
   return `<article class="card">
     <span class="rank">#${i+1}</span>
     <h3>${esc(t.trim.name)}</h3>
-    <p class="price">${MONEY.format(t.trim.msrp)} MSRP · about ${MONEY2.format(t.weekly)} / week</p>
+    <p class="price">${MONEY.format(t.trim.msrp)} MSRP · approx. ${MONEY2.format(t.weekly)} / week</p>
     <p class="delta">${extraTxt}</p>
     <ul class="features">${t.trim.features.map(h=>`<li>${esc(h)}</li>`).join('')}</ul>
   </article>`;
 }
 function setProgress(p){ $('progressBar').style.width = Math.round(Math.min(1,Math.max(0,p))*100)+'%'; }
 function esc(s){ return String(s).replace(/[&<>"']/g, c=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c])); }
-function modelById(id){ return DATA.models.find(m=>m.id===id); }
+function modelById(id){ return (DATA.models||[]).find(m=>m.id===id); }
 
 function answerS1(i){
   state.answers[state.s1] = i;
@@ -247,7 +277,8 @@ function chooseModel(id){
   render();
 }
 function trimQuestions(modelId){
-  return TRIM_Q.common.concat(TRIM_Q[modelId] || []);
+  const fam = familyOf(modelId);
+  return TRIM_Q.common.concat(TRIM_Q[fam] || TRIM_Q[modelId] || []);
 }
 function answerS2(i){
   state.trimAnswers[state.s2] = i;
@@ -257,7 +288,8 @@ function answerS2(i){
 }
 
 function scoreModels(){
-  const scores = Object.fromEntries(DATA.models.map(m=>[m.id,0]));
+  const models = availableModels();
+  const scores = Object.fromEntries(models.map(m=>[m.id,0]));
   let needThird=false, needAwd=false, prefer='any', charge='unsure', weeklyMax=999;
   STAGE1.forEach((q,qi)=>{
     const a = q.answers[state.answers[qi]];
@@ -267,9 +299,13 @@ function scoreModels(){
     if (a.prefer) prefer=a.prefer;
     if (a.charge) charge=a.charge;
     if (a.weeklyMax) weeklyMax=a.weeklyMax;
-    Object.entries(a.tags||{}).forEach(([id,n])=>{ scores[id]=(scores[id]||0)+n; });
+    Object.entries(a.tags||{}).forEach(([fam,n])=>{
+      models.forEach(m=>{
+        if ((m.family||m.id)===fam) scores[m.id]=(scores[m.id]||0)+n;
+      });
+    });
   });
-  DATA.models.forEach(m=>{
+  models.forEach(m=>{
     const w = weeklyFor(m);
     if (w > weeklyMax+15) scores[m.id]-=4;
     else if (w <= weeklyMax) scores[m.id]+=1;
@@ -280,7 +316,7 @@ function scoreModels(){
     if (prefer==='gas' && m.powertrain!=='gas') scores[m.id]-=4;
     if ((prefer==='ev' || prefer==='phev') && charge==='none' && m.powertrain!=='gas') scores[m.id]-=3;
   });
-  const ranked = DATA.models.map(m=>({ model:m, score:scores[m.id], why:whyFor(m, {needThird,needAwd,prefer,charge,weeklyMax}) }))
+  const ranked = models.map(m=>({ model:m, score:scores[m.id], why:whyFor(m, {needThird,needAwd,prefer,charge,weeklyMax}) }))
     .sort((a,b)=> b.score-a.score || a.model.startingMsrp-b.model.startingMsrp);
   // If third row is required, prefer two 7-seaters when possible
   let picks = ranked;
@@ -347,7 +383,7 @@ function showIntro(){
     <h1>Find the best Mitsubishi for your family.</h1>
     <p class="lede">A few friendly questions. No timer, no score, no sign-in — just a first and second choice from the current Mitsubishi models we have in stock, then help picking the right trim.</p>
     <button type="button" class="cta" id="startBtn" disabled>Loading…</button>
-    <p class="fine">Takes about two minutes. Payments shown later are estimates only.</p>
+    <p class="fine">Takes about two minutes. Payments shown later are approximate estimates only, before taxes, using current BC finance offers (November 3–30, 2026).</p>
   </section>`;
   if (DATA) armStart();
 }
