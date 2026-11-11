@@ -50,6 +50,7 @@ main{flex:1;width:min(720px,100%);margin:0 auto;padding:20px 16px 40px}
   padding:14px 18px;margin:18px 0 10px;
 }
 .cta:active,.choice:active{transform:translateY(3px);box-shadow:0 2px 0 var(--red-d)}
+.cta:disabled{background:#9a9a9a;box-shadow:none;cursor:wait;transform:none}
 .choices{display:flex;flex-direction:column;gap:10px;margin-top:18px}
 .choice{
   background:#fff;color:var(--ink);box-shadow:var(--shadow);

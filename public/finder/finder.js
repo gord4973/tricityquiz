@@ -346,18 +346,36 @@ function showIntro(){
     <p class="eyebrow">Port Coquitlam, BC</p>
     <h1>Find the best Mitsubishi for your family.</h1>
     <p class="lede">A few friendly questions. No timer, no score, no sign-in — just a first and second choice from the current Mitsubishi models we have in stock, then help picking the right trim.</p>
-    <button type="button" class="cta" id="startBtn">Let’s go</button>
+    <button type="button" class="cta" id="startBtn" disabled>Loading…</button>
     <p class="fine">Takes about two minutes. Payments shown later are estimates only.</p>
   </section>`;
-  $('startBtn').onclick=start;
+  if (DATA) armStart();
 }
-function start(){ state.step='s1'; state.s1=0; state.answers=[]; render(); }
+function start(){
+  if (!DATA) return;
+  state.step='s1'; state.s1=0; state.answers=[]; render();
+}
+function armStart(){
+  const btn = $('startBtn');
+  if (!btn) return;
+  btn.disabled = false;
+  btn.textContent = "Let’s go";
+  btn.onclick = start;
+}
 
 window.addEventListener('DOMContentLoaded', async ()=>{
-  DATA = await fetch('/finder/finder-data.json').then(r=>r.json());
-  $('startBtn').onclick=start;
   $('backBtn').onclick=goBack;
   $('restartBtn').onclick=()=>{ if (state.step==='intro' || confirm('Start the finder from the beginning?')) showIntro(); };
+  try {
+    const r = await fetch('/finder/finder-data.json');
+    if (!r.ok) throw new Error('HTTP '+r.status);
+    DATA = await r.json();
+    armStart();
+  } catch (err) {
+    const btn = $('startBtn');
+    if (btn){ btn.disabled = true; btn.textContent = "Couldn't load — please refresh"; }
+    console.error('Finder data failed to load', err);
+  }
 });
 
 // exported for tests
