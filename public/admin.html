@@ -10,7 +10,11 @@ const SH=['▲','◆','●','■'];let PW=localStorage.pw||'',G=null;
 const api=(u,o={})=>fetch(u,{...o,headers:{'content-type':'application/json','x-pw':PW}}).then(r=>r.json());
 function show(id){['login','list','editor'].forEach(x=>document.getElementById(x).classList.toggle('hidden',x!==id));if(id=='list')load()}
 async function login(){PW=pw.value||PW;const r=await api('/api/login',{method:'POST',body:JSON.stringify({pw:PW})});if(r.ok){localStorage.pw=PW;show('list')}else lerr.textContent='Wrong password'}
-async function load(){const gs=await api('/api/games');games.innerHTML=gs.length?'':'<div class=card>No games yet — tap “New game”.</div>';
+async function load(){const gs=await api('/api/games');
+ const finder=`<div class=card style="border:3px solid #E60012"><div><b style="font-size:1.2em">Find Your Perfect Mitsubishi</b><br><small>Customer vehicle finder — no timer, no score, no host PIN. Public link for social posts.</small></div><div class=row><a class=green href="/finder" target=_blank style="text-decoration:none;display:inline-block">Open finder</a><button class=blue type=button id=copyFinder>Copy link</button></div></div>`;
+ games.innerHTML=finder+(gs.length?'':'<div class=card>No games yet — tap “New game”.</div>');
+ const cf=document.getElementById('copyFinder');if(cf)cf.onclick=()=>{navigator.clipboard.writeText(location.origin+'/finder').then(()=>cf.textContent='Copied ✓')};
+
  gs.sort((a,b)=>b.updated-a.updated).forEach(g=>{const d=document.createElement('div');d.className='card';d.innerHTML=`<div><b style="font-size:1.2em"></b><br><small>${g.questions.length} questions</small></div><div class=row><button class=green>▶ Start</button><button class=blue>✏️ Edit</button><button class=red>🗑</button></div>`;
  d.querySelector('b').textContent=g.title;const [s,e,x]=d.querySelectorAll('button');s.onclick=()=>location='/host?g='+g.id;e.onclick=()=>edit(g);
  x.onclick=async()=>{if(confirm('Delete "'+g.title+'"?')){await api('/api/games/'+g.id,{method:'DELETE'});load()}};games.appendChild(d)})}

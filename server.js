@@ -14,6 +14,7 @@ for(const f of fs.readdirSync(path.join(__dirname,'seeds')).filter(f=>f.endsWith
 const save=()=>{fs.writeFileSync(DATA+'.tmp',JSON.stringify(games,null,1));fs.renameSync(DATA+'.tmp',DATA)};
 const QT=20000;
 const pts=ms=>Math.max(10,Math.round(100-90*Math.min(ms,QT)/QT));
+app.get(['/finder','/finder/'],(q,r)=>r.sendFile(path.join(__dirname,'public/finder/index.html')));
 app.use(express.json({limit:'8mb'}));app.use(express.static(path.join(__dirname,'public')));
 const auth=(q,r,n)=>q.get('x-pw')===PW?n():r.status(401).json({error:'bad password'});
 app.post('/api/login',(q,r)=>r.json({ok:q.body.pw===PW}));

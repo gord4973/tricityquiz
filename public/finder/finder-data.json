@@ -1,0 +1,754 @@
+{
+  "finance": {
+    "aprPercent": 6.99,
+    "termMonths": 84,
+    "downPayment": 0,
+    "paymentsPerYear": 52,
+    "freightPdiByModel": {
+      "rvr": 0,
+      "eclipse-cross": 0,
+      "outlander": 0,
+      "outlander-phev": 0,
+      "eclipse-sportback": 0
+    },
+    "notes": [
+      "Weekly payments are estimates only, for comparison, and are not an offer to finance.",
+      "Default calculation: 6.99% APR, 84-month term, $0 down, 52 weekly payments per year, on official MSRP.",
+      "Freight and PDI are set to $0 in this config because Mitsubishi Canada does not publish a freight/PDI dollar amount on mitsubishi-motors.ca. Enter a dealer freight/PDI figure here if you want it included (same amount is added to every trim of that model, so trim-to-trim differences stay the same if freight is identical).",
+      "Taxes, documentation, prep, licensing, insurance, dealer fees and other charges are excluded.",
+      "On approved credit (OAC). Rates, terms and payments vary by customer, model, trim and current programs. Promotional rates on mitsubishi-motors.ca may be lower and may use a different term.",
+      "Dealer is free to set prices and may sell for less. Inventory and official pricing can change."
+    ]
+  },
+  "dealer": {
+    "name": "Tricity Mitsubishi",
+    "address": "2060 Oxford Connector, Port Coquitlam, BC V3C 0A4",
+    "phone": "(604) 474-4340",
+    "phoneHref": "tel:+16044744340",
+    "website": "https://www.tricitymits.com",
+    "inventoryUrl": "https://www.tricitymits.com/mitsubishi-inventory/",
+    "testDriveUrl": "https://www.tricitymits.com/"
+  },
+  "inventoryNote": "Models below were confirmed as new 2026/2027 Mitsubishi vehicles listed for Tricity Mitsubishi (AutoTrader dealer id 47941112) on November 11, 2026: 2026/2027 RVR, 2026 Eclipse Cross, 2026/2027 Outlander, 2026 Outlander PHEV, and 2027 Eclipse Sportback EV. tricitymits.com inventory pages were blocked by the dealership site\u2019s bot protection, so stock was verified from AutoTrader\u2019s Tricity dealer listings rather than a live count on tricitymits.com. Trim MSRPs and features are official Mitsubishi Canada figures (and the TriCity Eclipse Sportback sales guide). Not every official trim is necessarily on the lot at this moment.",
+  "models": [
+    {
+      "id": "rvr",
+      "name": "RVR",
+      "yearLabel": "2026",
+      "yearsInStock": [
+        2026,
+        2027
+      ],
+      "tagline": "Compact SUV, easy to park, easy on the budget.",
+      "seats": 5,
+      "powertrain": "gas",
+      "drive": "awd_optional",
+      "driveLabel": "FWD or All-Wheel Control",
+      "startingMsrp": 24998,
+      "image": "/finder/img/rvr.png",
+      "source": "https://www.mitsubishi-motors.ca/en/vehicles/rvr-2026",
+      "highlights": [
+        "Subcompact 5-seat SUV",
+        "Starting at $24,998 MSRP (2026 ES FWD)",
+        "Heated front seats and 8-in display audio standard",
+        "All-Wheel Control available from ES AWC"
+      ],
+      "whyHints": {
+        "budget": "It\u2019s the most approachable Mitsubishi SUV on price.",
+        "size": "A nimble daily driver when you don\u2019t need a third row.",
+        "awd": "You can add All-Wheel Control without jumping to a midsize SUV.",
+        "city": "Sized for commuting and easier parking."
+      },
+      "note": "2027 RVR is also in stock; 2027 ES FWD starts at $25,278 MSRP. Trim prices and weekly estimates below use official 2026 MSRPs.",
+      "trims": [
+        {
+          "id": "es-fwd",
+          "name": "ES FWD",
+          "msrp": 24998,
+          "drive": "FWD",
+          "tags": [
+            "value",
+            "heated-front"
+          ],
+          "features": [
+            "7 airbags",
+            "16-in steel wheels with wheelcovers",
+            "Auto LED headlights",
+            "Heated front seats",
+            "Automatic climate control",
+            "8-in display audio with Apple CarPlay & Android Auto",
+            "Rain-sensing wipers"
+          ]
+        },
+        {
+          "id": "es-awc",
+          "name": "ES AWC",
+          "msrp": 26998,
+          "drive": "AWC",
+          "tags": [
+            "value",
+            "heated-front",
+            "awd"
+          ],
+          "features": [
+            "All-Wheel Control",
+            "7 airbags",
+            "16-in steel wheels with wheelcovers",
+            "Auto LED headlights",
+            "Heated front seats",
+            "Automatic climate control",
+            "8-in display audio with Apple CarPlay & Android Auto"
+          ]
+        },
+        {
+          "id": "se-awc",
+          "name": "SE AWC",
+          "msrp": 28998,
+          "drive": "AWC",
+          "tags": [
+            "comfort",
+            "awd",
+            "safety"
+          ],
+          "features": [
+            "Blind Spot Warning",
+            "Rear Cross Traffic Alert",
+            "16-in alloy wheels",
+            "LED fog lights",
+            "Rear privacy glass",
+            "Premium fabric seats",
+            "Leather-wrapped steering wheel",
+            "6 speakers"
+          ]
+        },
+        {
+          "id": "sel-awc",
+          "name": "SEL AWC",
+          "msrp": 31498,
+          "drive": "AWC",
+          "tags": [
+            "comfort",
+            "leather",
+            "awd",
+            "heated-wheel"
+          ],
+          "features": [
+            "18-in alloy wheels",
+            "Heated power-folding mirrors",
+            "Black roof rails",
+            "Microsuede/synthetic leather seats",
+            "Push-button start",
+            "FAST-Key keyless entry",
+            "Heated steering wheel"
+          ]
+        },
+        {
+          "id": "noir-awc",
+          "name": "NOIR AWC",
+          "msrp": 32998,
+          "drive": "AWC",
+          "tags": [
+            "style",
+            "sunroof",
+            "leather",
+            "awd"
+          ],
+          "features": [
+            "18-in black-painted alloy wheels",
+            "Black mirrors and body-colour door handles",
+            "Panoramic fixed glass sunroof with sunshade",
+            "Large rear spoiler",
+            "NOIR badge",
+            "Microsuede/synthetic leather with red stitch accents",
+            "Black headliner",
+            "Aluminum pedals"
+          ]
+        },
+        {
+          "id": "gt-awc",
+          "name": "GT AWC",
+          "msrp": 35998,
+          "drive": "AWC",
+          "tags": [
+            "leather",
+            "audio",
+            "safety",
+            "awd"
+          ],
+          "features": [
+            "Lane Departure Warning",
+            "Forward Collision Mitigation",
+            "Leather-appointed seats",
+            "Auto-dimming rearview mirror with HomeLink",
+            "Cargo cover",
+            "710-watt Rockford Fosgate audio with 9 speakers and subwoofer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eclipse-cross",
+      "name": "Eclipse Cross",
+      "yearLabel": "2026",
+      "yearsInStock": [
+        2026
+      ],
+      "tagline": "Stylish compact SUV with S-AWC standard.",
+      "seats": 5,
+      "powertrain": "gas",
+      "drive": "awd_standard",
+      "driveLabel": "S-AWC standard",
+      "startingMsrp": 29798,
+      "image": "/finder/img/eclipse-cross.png",
+      "source": "https://www.mitsubishi-motors.ca/en/vehicles/eclipse-cross",
+      "highlights": [
+        "Compact 5-seat SUV",
+        "Super All-Wheel Control standard on every trim",
+        "Starting at $29,798 MSRP (ES S-AWC)",
+        "Heated front seats and 18-in alloys from the ES"
+      ],
+      "whyHints": {
+        "awd": "S-AWC is standard on every Eclipse Cross.",
+        "style": "A more distinctive compact SUV than a basic commuter.",
+        "budget": "Sits in the middle of the lineup on price.",
+        "size": "Five seats and compact dimensions for everyday driving."
+      },
+      "trims": [
+        {
+          "id": "es",
+          "name": "ES S-AWC",
+          "msrp": 29798,
+          "drive": "S-AWC",
+          "tags": [
+            "value",
+            "awd",
+            "heated-front",
+            "safety"
+          ],
+          "features": [
+            "Super All-Wheel Control with Drive Mode Selector",
+            "7 airbags",
+            "Forward Collision Mitigation",
+            "18-in alloy wheels",
+            "Heated front seats",
+            "Automatic climate control",
+            "Apple CarPlay & Android Auto",
+            "Rain-sensing wipers"
+          ]
+        },
+        {
+          "id": "se",
+          "name": "SE S-AWC",
+          "msrp": 33298,
+          "drive": "S-AWC",
+          "tags": [
+            "comfort",
+            "awd",
+            "heated-wheel",
+            "safety"
+          ],
+          "features": [
+            "Blind Spot Warning",
+            "Rear Cross Traffic Alert",
+            "LED fog lights and auto LED high beams",
+            "Heated power-folding mirrors",
+            "Premium fabric seats",
+            "Dual-zone automatic climate",
+            "FAST-Key keyless entry",
+            "Heated steering wheel",
+            "Hands-free height-adjustable power liftgate"
+          ]
+        },
+        {
+          "id": "noir",
+          "name": "NOIR S-AWC",
+          "msrp": 36898,
+          "drive": "S-AWC",
+          "tags": [
+            "style",
+            "leather",
+            "safety",
+            "tech",
+            "heated-rear",
+            "awd"
+          ],
+          "features": [
+            "Adaptive Cruise Control",
+            "18-in black-painted alloy wheels",
+            "NOIR badge and black hood emblem",
+            "Heated 2nd-row seats",
+            "6-way power driver\u2019s seat",
+            "Microsuede/synthetic leather seats",
+            "Auto-dimming mirror with HomeLink",
+            "Multi View Camera System",
+            "Head-Up Display"
+          ]
+        },
+        {
+          "id": "gt",
+          "name": "GT S-AWC",
+          "msrp": 38898,
+          "drive": "S-AWC",
+          "tags": [
+            "leather",
+            "sunroof",
+            "audio",
+            "comfort",
+            "awd"
+          ],
+          "features": [
+            "Power panoramic sunroof with dual sunshades",
+            "Leather-appointed seats",
+            "6-way power driver and 4-way power passenger seats",
+            "Mitsubishi Power Sound System with 8 speakers",
+            "Remote starter",
+            "Gloss black skid-plate styling",
+            "Body-colour bumper garnish and side sills"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "outlander",
+      "name": "Outlander",
+      "yearLabel": "2026",
+      "yearsInStock": [
+        2026,
+        2027
+      ],
+      "tagline": "7-passenger family SUV with S-AWC standard.",
+      "seats": 7,
+      "powertrain": "gas",
+      "drive": "awd_standard",
+      "driveLabel": "S-AWC standard",
+      "startingMsrp": 36398,
+      "towingLb": 2000,
+      "towingKg": 907,
+      "cargoL": "308 / 866 / 1,822 L",
+      "image": "/finder/img/outlander.png",
+      "source": "https://www.mitsubishi-motors.ca/en/vehicles/outlander-2026",
+      "highlights": [
+        "7-passenger seating (5+2) on every trim",
+        "1.5L turbo 48V mild hybrid",
+        "S-AWC standard",
+        "Towing up to 907 kg / 2,000 lb",
+        "Starting at $36,398 MSRP (2026 ES S-AWC)"
+      ],
+      "whyHints": {
+        "family": "Every Outlander has 7-passenger seating.",
+        "awd": "S-AWC is standard across the lineup.",
+        "cargo": "Strong cargo flexibility with the rear seats folded (up to 1,822 L).",
+        "tow": "Rated to tow up to 2,000 lb.",
+        "commute": "A mild-hybrid powertrain for mixed commuting."
+      },
+      "note": "2027 Outlander is also in stock; 2027 ES S-AWC starts at $37,398 MSRP. Trim prices and weekly estimates below use official 2026 MSRPs.",
+      "trims": [
+        {
+          "id": "es",
+          "name": "ES S-AWC",
+          "msrp": 36398,
+          "drive": "S-AWC",
+          "tags": [
+            "value",
+            "awd",
+            "heated-front"
+          ],
+          "features": [
+            "S-AWC with Drive Mode Selector",
+            "11 airbags",
+            "7-passenger seating",
+            "12.3-in display audio",
+            "Yamaha Premium 8-speaker audio",
+            "Wireless Apple CarPlay & Android Auto",
+            "Heated front seats",
+            "Dual-zone automatic climate"
+          ]
+        },
+        {
+          "id": "se",
+          "name": "SE S-AWC",
+          "msrp": 39098,
+          "drive": "S-AWC",
+          "tags": [
+            "comfort",
+            "sunroof",
+            "heated-wheel",
+            "awd"
+          ],
+          "features": [
+            "Power panoramic sunroof",
+            "3-zone automatic climate",
+            "Wireless charger",
+            "FAST-Key keyless entry",
+            "Heated steering wheel",
+            "Hands-free height-adjustable power liftgate",
+            "LED fog lights",
+            "Silver roof rails"
+          ]
+        },
+        {
+          "id": "le",
+          "name": "LE S-AWC",
+          "msrp": 42198,
+          "drive": "S-AWC",
+          "tags": [
+            "safety",
+            "tech",
+            "leather",
+            "awd"
+          ],
+          "features": [
+            "Adaptive Cruise Control",
+            "18-in two-tone alloy wheels",
+            "8-way power driver\u2019s seat with lumbar",
+            "Microsuede/synthetic leather seats",
+            "Embedded navigation",
+            "Multi View Camera System with Moving Object Detection",
+            "Mitsubishi Connect trial"
+          ]
+        },
+        {
+          "id": "sel",
+          "name": "SEL S-AWC",
+          "msrp": 44898,
+          "drive": "S-AWC",
+          "tags": [
+            "leather",
+            "comfort",
+            "heated-rear",
+            "awd"
+          ],
+          "features": [
+            "20-in two-tone alloy wheels",
+            "Heated 2nd-row seats",
+            "Ventilated front seats",
+            "Leather-appointed seats",
+            "Power driver seat with key-linked memory",
+            "4-way power passenger seat",
+            "12.3-in full digital driver display",
+            "Rain-sensing wipers"
+          ]
+        },
+        {
+          "id": "gt",
+          "name": "GT S-AWC",
+          "msrp": 47398,
+          "drive": "S-AWC",
+          "tags": [
+            "safety",
+            "audio",
+            "tech",
+            "awd"
+          ],
+          "features": [
+            "Lane Departure Prevention",
+            "Active Blind Spot Assist",
+            "ACC with Stop & Go",
+            "Traffic Sign Recognition",
+            "Front parking sensors",
+            "Yamaha Ultimate 12-speaker audio",
+            "10.8-in Head-Up Display"
+          ]
+        },
+        {
+          "id": "gt-premium",
+          "name": "GT PREMIUM S-AWC",
+          "msrp": 48398,
+          "drive": "S-AWC",
+          "tags": [
+            "leather",
+            "luxury",
+            "awd"
+          ],
+          "features": [
+            "Semi-aniline leather-appointed seats",
+            "Brown interior stitch accents",
+            "Frameless digital rearview mirror with HomeLink"
+          ]
+        },
+        {
+          "id": "noir",
+          "name": "NOIR S-AWC",
+          "msrp": 49748,
+          "drive": "S-AWC",
+          "tags": [
+            "style",
+            "luxury",
+            "leather",
+            "awd"
+          ],
+          "features": [
+            "20-in black-painted alloy wheels",
+            "Black-painted Dynamic Shield and dark emblems",
+            "NOIR badge and lighting",
+            "Black roof rails",
+            "Black headliner",
+            "Aluminum pedals"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "outlander-phev",
+      "name": "Outlander PHEV",
+      "yearLabel": "2026",
+      "yearsInStock": [
+        2026
+      ],
+      "tagline": "Canada\u2019s 7-passenger plug-in hybrid SUV.",
+      "seats": 7,
+      "powertrain": "phev",
+      "drive": "awd_standard",
+      "driveLabel": "S-AWC standard",
+      "startingMsrp": 46998,
+      "evRangeKm": 72,
+      "totalRangeKm": 690,
+      "towingLb": 1500,
+      "towingKg": 680,
+      "cargoL": "362 / 872 / 1,832 L",
+      "image": "/finder/img/outlander-phev.png",
+      "source": "https://www.mitsubishi-motors.ca/en/vehicles/outlander-phev",
+      "highlights": [
+        "7-passenger plug-in hybrid",
+        "About 72 km of EV range; up to 690 km total range",
+        "S-AWC and DC quick-charge port standard",
+        "1,500-W household power supply standard",
+        "Starting at $46,998 MSRP (ES S-AWC)"
+      ],
+      "whyHints": {
+        "phev": "Plug in at home and cover many commutes on electric power.",
+        "family": "Keeps 7-passenger seating in a plug-in hybrid.",
+        "range": "Gas backup for longer trips \u2014 up to 690 km total range.",
+        "awd": "S-AWC is standard.",
+        "utility": "1,500-W power supply and up to 1,500 lb towing."
+      },
+      "trims": [
+        {
+          "id": "es",
+          "name": "ES S-AWC",
+          "msrp": 46998,
+          "drive": "S-AWC",
+          "tags": [
+            "value",
+            "awd",
+            "safety",
+            "heated-front",
+            "tech"
+          ],
+          "features": [
+            "S-AWC, regen paddles and Innovative Pedal",
+            "DC quick-charge port",
+            "Adaptive Cruise Control",
+            "7-passenger seating",
+            "8-way power front seats",
+            "12.3-in display audio and 12.3-in digital driver display",
+            "Yamaha Premium 8-speaker audio",
+            "Wireless Apple CarPlay & Android Auto",
+            "1,500-W power supply"
+          ]
+        },
+        {
+          "id": "se",
+          "name": "SE S-AWC",
+          "msrp": 52598,
+          "drive": "S-AWC",
+          "tags": [
+            "comfort",
+            "sunroof",
+            "heated-wheel",
+            "awd"
+          ],
+          "features": [
+            "Panoramic sunroof",
+            "3-zone climate",
+            "Wireless charger",
+            "FAST-Key",
+            "Heated steering wheel",
+            "Hands-free power liftgate",
+            "LED fog lights",
+            "Silver roof rails"
+          ]
+        },
+        {
+          "id": "le",
+          "name": "LE S-AWC",
+          "msrp": 54798,
+          "drive": "S-AWC",
+          "tags": [
+            "tech",
+            "leather",
+            "safety",
+            "awd"
+          ],
+          "features": [
+            "18-in two-tone alloy wheels",
+            "Microsuede/synthetic leather",
+            "Embedded navigation",
+            "SiriusXM 360L",
+            "Mitsubishi Connect trial",
+            "Multi View Camera System"
+          ]
+        },
+        {
+          "id": "sel",
+          "name": "SEL S-AWC",
+          "msrp": 57598,
+          "drive": "S-AWC",
+          "tags": [
+            "leather",
+            "comfort",
+            "heated-rear",
+            "awd"
+          ],
+          "features": [
+            "20-in two-tone alloy wheels",
+            "Heated 2nd-row seats",
+            "Ventilated front seats",
+            "Leather-appointed seats",
+            "Memory seat and mirrors",
+            "Auto-dimming mirror with HomeLink",
+            "Rain-sensing wipers"
+          ]
+        },
+        {
+          "id": "gt",
+          "name": "GT S-AWC",
+          "msrp": 60598,
+          "drive": "S-AWC",
+          "tags": [
+            "safety",
+            "audio",
+            "tech",
+            "awd"
+          ],
+          "features": [
+            "Lane Departure Prevention",
+            "Active Blind Spot Assist",
+            "ACC with Stop & Go",
+            "Traffic Sign Recognition",
+            "Front parking sensors",
+            "Yamaha Ultimate 12-speaker audio",
+            "10.8-in Head-Up Display"
+          ]
+        },
+        {
+          "id": "gt-premium",
+          "name": "GT PREMIUM S-AWC",
+          "msrp": 61698,
+          "drive": "S-AWC",
+          "tags": [
+            "luxury",
+            "leather",
+            "comfort",
+            "awd"
+          ],
+          "features": [
+            "Semi-aniline leather-appointed seats",
+            "Front seat massage",
+            "Brown stitch accents",
+            "Digital rearview mirror with HomeLink"
+          ]
+        },
+        {
+          "id": "gt-noir",
+          "name": "GT NOIR S-AWC",
+          "msrp": 63048,
+          "drive": "S-AWC",
+          "tags": [
+            "style",
+            "luxury",
+            "leather",
+            "awd"
+          ],
+          "features": [
+            "20-in black alloy wheels",
+            "Black Dynamic Shield and dark emblems",
+            "NOIR badge and lighting",
+            "Aluminum pedals"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eclipse-sportback",
+      "name": "Eclipse Sportback",
+      "yearLabel": "2027",
+      "yearsInStock": [
+        2027
+      ],
+      "tagline": "All-electric Sportback with up to 454 km of range.",
+      "seats": 5,
+      "powertrain": "ev",
+      "drive": "fwd_only",
+      "driveLabel": "Front-wheel drive",
+      "startingMsrp": 48998,
+      "evRangeKm": 454,
+      "batteryKwh": 75,
+      "cargoL": "566 L (1,572 L seats folded)",
+      "image": "/finder/img/eclipse-sportback.png",
+      "source": "https://www.mitsubishi-motors.ca/en/vehicles/eclipse-sportback",
+      "highlights": [
+        "All-electric, 214 hp, 75 kWh battery",
+        "Up to 454 km estimated range",
+        "5 seats, FWD",
+        "NACS DC fast charging up to 150 kW",
+        "Starting at $48,998 MSRP (EV)"
+      ],
+      "whyHints": {
+        "ev": "The lineup\u2019s fully electric choice.",
+        "range": "Up to 454 km estimated range on a full charge.",
+        "charge": "NACS DC fast charging and a heat pump are standard.",
+        "tech": "14.3-in displays, Google built-in, and MI-PILOT Assist come on the EV."
+      },
+      "trims": [
+        {
+          "id": "ev",
+          "name": "EV",
+          "msrp": 48998,
+          "drive": "FWD",
+          "tags": [
+            "value",
+            "tech",
+            "safety",
+            "heated-front",
+            "heated-rear",
+            "heated-wheel",
+            "leather"
+          ],
+          "features": [
+            "214 hp electric motor, 75 kWh battery",
+            "Up to 454 km estimated range",
+            "NACS DC fast charging up to 150 kW",
+            "Heat pump standard",
+            "11 airbags and MI-PILOT Assist with ACC Stop & Go",
+            "18-in two-tone alloy wheels",
+            "Heated front and 2nd-row seats, heated steering wheel",
+            "Synthetic leather, 8-way power driver seat",
+            "14.3-in Display Audio and 14.3-in digital driver display",
+            "Google built-in with embedded navigation",
+            "6 speakers"
+          ]
+        },
+        {
+          "id": "ev-tech",
+          "name": "EV with Technology Package",
+          "msrp": 54098,
+          "drive": "FWD",
+          "tags": [
+            "sunroof",
+            "audio",
+            "luxury",
+            "tech"
+          ],
+          "features": [
+            "Everything on the EV",
+            "Panoramic fixed glass roof with e-dimming sunshade",
+            "BOSE Premium Sound, 10 speakers including front headrest speakers",
+            "Hands-free power liftgate",
+            "Black roof rails"
+          ]
+        }
+      ]
+    }
+  ]
+}
